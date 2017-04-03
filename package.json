@@ -6,7 +6,9 @@
   "scripts": {
     "start": "electron .",
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "build",
+    "collect-renders": "cp /Users/shixiao/go/src/renders/renders ./",
+    "collect-app": "cp -r ../viewer/dist ./app"
   },
   "keywords": [],
   "author": "Centimitr",
