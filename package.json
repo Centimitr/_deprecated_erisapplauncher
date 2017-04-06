@@ -8,7 +8,7 @@
     "pack": "build --dir",
     "dist": "build",
     "collect-renders": "cp /Users/shixiao/go/src/renders/renders ./",
-    "collect-app": "cp -r ../viewer/dist ./app"
+    "collect-app": "cp -r ../viewer/dist/ ./app/"
   },
   "keywords": [],
   "author": "Centimitr",
@@ -24,7 +24,7 @@
     },
     "compression": "store",
     "asarUnpack": [
-      "1"
+      "renders"
     ],
     "fileAssociations": {
       "ext": [

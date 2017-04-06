@@ -13,10 +13,13 @@ class Gopher {
     constructor(path) {
         this.path = path;
         this.port = DEFAULT_PORT;
+        this._onStart = [];
     }
 
     start() {
         this.handler = spawn(gopherPath, [this.port]);
+        this._onStart.forEach(callback => callback(this.port));
+        console.log('Running with port:', this.port);
 
         this.handler.stdout.on('data', (data) => {
             console.log(`stdout: ${data}`);
@@ -38,6 +41,12 @@ class Gopher {
         if (this.handler && this.handler.kill) {
             this.terminating = true;
             return this.handler.kill();
+        }
+    }
+
+    onStart(callback) {
+        if (typeof callback === 'function') {
+            this._onStart.push(callback);
         }
     }
 }

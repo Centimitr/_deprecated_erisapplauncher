@@ -23,119 +23,122 @@ function createWindow() {
         // minimizable: false,
         // maximizable: false
     });
+    {
+        // const template = [
+        //     {
+        //         label: 'View',
+        //         submenu: [
+        //             {
+        //                 role: 'togglefullscreen'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         role: 'window',
+        //         submenu: [
+        //             {
+        //                 role: 'minimize'
+        //             },
+        //             {
+        //                 role: 'close'
+        //             }
+        //         ]
+        //     },
+        //     {
+        //         role: 'help',
+        //         submenu: [
+        //             {
+        //                 label: 'Learn More',
+        //                 click () {
+        //                     require('electron').shell.openExternal('http://devbycm.com')
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // ];
+        // if (process.platform === 'darwin') {
+        //     template.unshift({
+        //         label: app.getName(),
+        //         submenu: [
+        //             {
+        //                 role: 'about'
+        //             },
+        //             {
+        //                 type: 'separator'
+        //             },
+        //             {
+        //                 role: 'services',
+        //                 submenu: []
+        //             },
+        //             {
+        //                 type: 'separator'
+        //             },
+        //             {
+        //                 role: 'hide'
+        //             },
+        //             {
+        //                 role: 'hideothers'
+        //             },
+        //             {
+        //                 role: 'unhide'
+        //             },
+        //             {
+        //                 type: 'separator'
+        //             },
+        //             {
+        //                 role: 'quit'
+        //             }
+        //         ]
+        //     });
+        //     // Window menu.
+        //     template[2].submenu = [
+        //         {
+        //             label: 'Close',
+        //             accelerator: 'CmdOrCtrl+W',
+        //             role: 'close'
+        //         },
+        //         {
+        //             label: 'Minimize',
+        //             accelerator: 'CmdOrCtrl+M',
+        //             role: 'minimize'
+        //         },
+        //         {
+        //             label: 'Zoom',
+        //             role: 'zoom'
+        //         },
+        //         {
+        //             type: 'separator'
+        //         },
+        //         {
+        //             label: 'Bring All to Front',
+        //             role: 'front'
+        //         }
+        //     ];
+        // }
+        // const menu = Menu.buildFromTemplate(template);
+        // Menu.setApplicationMenu(menu);
 
-    // const template = [
-    //     {
-    //         label: 'View',
-    //         submenu: [
-    //             {
-    //                 role: 'togglefullscreen'
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         role: 'window',
-    //         submenu: [
-    //             {
-    //                 role: 'minimize'
-    //             },
-    //             {
-    //                 role: 'close'
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         role: 'help',
-    //         submenu: [
-    //             {
-    //                 label: 'Learn More',
-    //                 click () {
-    //                     require('electron').shell.openExternal('http://devbycm.com')
-    //                 }
-    //             }
-    //         ]
-    //     }
-    // ];
-    // if (process.platform === 'darwin') {
-    //     template.unshift({
-    //         label: app.getName(),
-    //         submenu: [
-    //             {
-    //                 role: 'about'
-    //             },
-    //             {
-    //                 type: 'separator'
-    //             },
-    //             {
-    //                 role: 'services',
-    //                 submenu: []
-    //             },
-    //             {
-    //                 type: 'separator'
-    //             },
-    //             {
-    //                 role: 'hide'
-    //             },
-    //             {
-    //                 role: 'hideothers'
-    //             },
-    //             {
-    //                 role: 'unhide'
-    //             },
-    //             {
-    //                 type: 'separator'
-    //             },
-    //             {
-    //                 role: 'quit'
-    //             }
-    //         ]
-    //     });
-    //     // Window menu.
-    //     template[2].submenu = [
-    //         {
-    //             label: 'Close',
-    //             accelerator: 'CmdOrCtrl+W',
-    //             role: 'close'
-    //         },
-    //         {
-    //             label: 'Minimize',
-    //             accelerator: 'CmdOrCtrl+M',
-    //             role: 'minimize'
-    //         },
-    //         {
-    //             label: 'Zoom',
-    //             role: 'zoom'
-    //         },
-    //         {
-    //             type: 'separator'
-    //         },
-    //         {
-    //             label: 'Bring All to Front',
-    //             role: 'front'
-    //         }
-    //     ];
-    // }
-    // const menu = Menu.buildFromTemplate(template);
-    // Menu.setApplicationMenu(menu);
-
-    main.loadURL(url.format({
-        pathname: path.join(__dirname, 'docs', 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
+        // main.loadURL(url.format({
+        //     pathname: path.join(__dirname, 'docs', 'index.html'),
+        //     protocol: 'file:',
+        //     slashes: true
+        // }));
+        //
+    }
+    const associatePath = process.argv[0];
+    main.webContents.on('dom-ready', () => {
+        main.webContents.send('path', associatePath);
+        main.webContents.send('port', gopher.port);
+    });
+    gopher.onStart(port => {
+        main.webContents.send('port', port)
+    });
     // main.loadURL(url.format({
-    //     pathname: path.join(__dirname, 'index.html'),
+    //     pathname: path.join(__dirname, 'app', 'index.html'),
     //     protocol: 'file:',
     //     slashes: true
     // }));
-
-    // console.log(process.argv);
-    // const entry = {
-    //     path: process.argv[0],
-    //     argv: process.argv
-    // };
-    // main.loadURL('http://localhost:4200' + '?entry=' + JSON.stringify(entry));
+    main.loadURL('http://localhost:4200');
     main.on('closed', function () {
         main = null
     })
