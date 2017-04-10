@@ -1,14 +1,13 @@
 {
-  "name": "ProjectView",
-  "version": "0.2.0",
+  "name": "Eris",
+  "version": "0.2.1",
   "description": "A simple and clean manga, gallery viewer for macOS.",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "start": "electron .",
     "pack": "build --dir",
     "dist": "build",
-    "collect-renders": "cp /Users/shixiao/go/src/renders/renders ./",
-    "collect-app": "cp -r ../viewer/dist/ ./app/"
+    "collect": "node collect.js"
   },
   "keywords": [],
   "author": "Centimitr",
@@ -17,8 +16,8 @@
     "electron-builder": "next"
   },
   "build": {
-    "appId": "com.devbycm.projectviewer",
-    "productName": "Project View",
+    "appId": "com.devbycm.eris",
+    "productName": "Eris",
     "mac": {
       "category": "your.app.category.type"
     },
