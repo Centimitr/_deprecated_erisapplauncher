@@ -21,7 +21,10 @@ function createWindow() {
         // movable: false,
         // resizable: false,
         // minimizable: false,
-        // maximizable: false
+        // maximizable: false,
+        webPreferences: {
+            webSecurity: false
+        }
     });
     {
         const template = [
@@ -126,22 +129,36 @@ function createWindow() {
         //
     }
 
-
     const associatePath = process.argv[0];
     main.webContents.on('dom-ready', () => {
         main.webContents.send('path', associatePath);
         main.webContents.send('port', gopher.port);
     });
+    main.webContents.openDevTools();
     gopher.onStart(port => {
         main.webContents.send('port', port)
     });
-    main.webContents.openDevTools();
     // main.loadURL(url.format({
     //     pathname: path.join(__dirname, 'app', 'index.html'),
     //     protocol: 'file:',
     //     slashes: true
     // }));
-    main.loadURL('http://localhost:4200');
+    // main.loadURL('http://localhost:4200');
+
+    // save img from page
+    const urls = [
+        'http://www.1kkk.com/ch1-250895-p1/',
+        'http://www.1kkk.com/ch1-250895-p2/',
+        'http://www.1kkk.com/ch1-250895-p3/',
+        'http://www.1kkk.com/ch1-250895-p4/',
+        'http://www.1kkk.com/ch1-250895-p5/',
+        'http://www.1kkk.com/ch1-250895-p6/'
+    ];
+    console.time('Total:');
+    const download = require('./download');
+    download(urls, main, true).then(() => {
+        console.timeEnd('Total:');
+    });
     main.on('closed', function () {
         main = null
     })
