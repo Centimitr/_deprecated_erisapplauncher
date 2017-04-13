@@ -32,5 +32,8 @@
         "gif"
       ]
     }
+  },
+  "dependencies": {
+    "fs-extra-promise": "^1.0.1"
   }
 }

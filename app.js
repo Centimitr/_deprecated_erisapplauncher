@@ -15,7 +15,7 @@ function createWindow() {
         titleBarStyle: 'hidden-inset',
         // titleBarStyle: 'inset',
         // vibrancy: 'ultra-dark',
-        show: false,
+        // show: false,
         // autoHideMenuBar: true,
         // focusable: false,
         // movable: false,
@@ -134,7 +134,7 @@ function createWindow() {
         main.webContents.send('path', associatePath);
         main.webContents.send('port', gopher.port);
     });
-    main.webContents.openDevTools();
+    // main.webContents.openDevTools();
     gopher.onStart(port => {
         main.webContents.send('port', port)
     });
@@ -146,22 +146,12 @@ function createWindow() {
     // main.loadURL('http://localhost:4200');
 
     // save img from page
-    const urls = [
-        'http://www.1kkk.com/ch1-250895-p1/',
-        'http://www.1kkk.com/ch1-250895-p2/',
-        'http://www.1kkk.com/ch1-250895-p3/',
-        'http://www.1kkk.com/ch1-250895-p4/',
-        'http://www.1kkk.com/ch1-250895-p5/',
-        'http://www.1kkk.com/ch1-250895-p6/'
-    ];
     console.time('Total:');
-    const download = require('./download');
-    download(urls, main, true).then(() => {
-        console.timeEnd('Total:');
-    });
+    const maid = require('./maid/maid').create(main);
+    maid.saveSeries('http://www.1kkk.com/manhua22709/', 'manga_1', '/Users/shixiao/Desktop/').then(d => console.log(d));
     main.on('closed', function () {
         main = null
-    })
+    });
 }
 
 app.on('ready', createWindow);
