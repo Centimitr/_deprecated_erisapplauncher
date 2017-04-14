@@ -26,108 +26,108 @@ function createWindow() {
             webSecurity: false
         }
     });
-    {
-        const template = [
-            {
-                label: 'View',
-                submenu: [
-                    {
-                        role: 'togglefullscreen'
-                    }
-                ]
-            },
-            {
-                role: 'window',
-                submenu: [
-                    {
-                        role: 'minimize'
-                    },
-                    {
-                        role: 'close'
-                    }
-                ]
-            },
-            {
-                role: 'help',
-                submenu: [
-                    {
-                        label: 'Learn More',
-                        click () {
-                            require('electron').shell.openExternal('http://devbycm.com')
-                        }
-                    }
-                ]
-            }
-        ];
-        if (process.platform === 'darwin') {
-            template.unshift({
-                label: app.getName(),
-                submenu: [
-                    {
-                        role: 'about'
-                    },
-                    {
-                        type: 'separator'
-                    },
-                    {
-                        role: 'services',
-                        submenu: []
-                    },
-                    {
-                        type: 'separator'
-                    },
-                    {
-                        role: 'hide'
-                    },
-                    {
-                        role: 'hideothers'
-                    },
-                    {
-                        role: 'unhide'
-                    },
-                    {
-                        type: 'separator'
-                    },
-                    {
-                        role: 'quit'
-                    }
-                ]
-            });
-            // Window menu.
-            template[2].submenu = [
-                {
-                    label: 'Close',
-                    accelerator: 'CmdOrCtrl+W',
-                    role: 'close'
-                },
-                {
-                    label: 'Minimize',
-                    accelerator: 'CmdOrCtrl+M',
-                    role: 'minimize'
-                },
-                {
-                    label: 'Zoom',
-                    role: 'zoom'
-                },
-                {
-                    type: 'separator'
-                },
-                {
-                    label: 'Bring All to Front',
-                    role: 'front'
-                }
-            ];
-        }
-        const menu = Menu.buildFromTemplate(template);
-        Menu.setApplicationMenu(menu);
-
-        // main.loadURL(url.format({
-        //     pathname: path.join(__dirname, 'docs', 'index.html'),
-        //     protocol: 'file:',
-        //     slashes: true
-        // }));
-        //
-    }
+    // {
+    //     const template = [
+    //         {
+    //             label: 'View',
+    //             submenu: [
+    //                 {
+    //                     role: 'togglefullscreen'
+    //                 }
+    //             ]
+    //         },
+    //         {
+    //             role: 'window',
+    //             submenu: [
+    //                 {
+    //                     role: 'minimize'
+    //                 },
+    //                 {
+    //                     role: 'close'
+    //                 }
+    //             ]
+    //         },
+    //         {
+    //             role: 'help',
+    //             submenu: [
+    //                 {
+    //                     label: 'Learn More',
+    //                     click () {
+    //                         require('electron').shell.openExternal('http://devbycm.com')
+    //                     }
+    //                 }
+    //             ]
+    //         }
+    //     ];
+    //     if (process.platform === 'darwin') {
+    //         template.unshift({
+    //             label: app.getName(),
+    //             submenu: [
+    //                 {
+    //                     role: 'about'
+    //                 },
+    //                 {
+    //                     type: 'separator'
+    //                 },
+    //                 {
+    //                     role: 'services',
+    //                     submenu: []
+    //                 },
+    //                 {
+    //                     type: 'separator'
+    //                 },
+    //                 {
+    //                     role: 'hide'
+    //                 },
+    //                 {
+    //                     role: 'hideothers'
+    //                 },
+    //                 {
+    //                     role: 'unhide'
+    //                 },
+    //                 {
+    //                     type: 'separator'
+    //                 },
+    //                 {
+    //                     role: 'quit'
+    //                 }
+    //             ]
+    //         });
+    //         // Window menu.
+    //         template[2].submenu = [
+    //             {
+    //                 label: 'Close',
+    //                 accelerator: 'CmdOrCtrl+W',
+    //                 role: 'close'
+    //             },
+    //             {
+    //                 label: 'Minimize',
+    //                 accelerator: 'CmdOrCtrl+M',
+    //                 role: 'minimize'
+    //             },
+    //             {
+    //                 label: 'Zoom',
+    //                 role: 'zoom'
+    //             },
+    //             {
+    //                 type: 'separator'
+    //             },
+    //             {
+    //                 label: 'Bring All to Front',
+    //                 role: 'front'
+    //             }
+    //         ];
+    //     }
+    //     const menu = Menu.buildFromTemplate(template);
+    //     Menu.setApplicationMenu(menu);
+    //
+    //     // main.loadURL(url.format({
+    //     //     pathname: path.join(__dirname, 'docs', 'index.html'),
+    //     //     protocol: 'file:',
+    //     //     slashes: true
+    //     // }));
+    //     //
+    // }
 
     const associatePath = process.argv[0];
     main.webContents.on('dom-ready', () => {
@@ -143,12 +143,16 @@ function createWindow() {
     //     protocol: 'file:',
     //     slashes: true
     // }));
+
+    main.loadURL(url.format({
+        pathname: path.join(__dirname, 'maid', 'maid.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
+
     // main.loadURL('http://localhost:4200');
 
     // save img from page
-    console.time('Total:');
-    const maid = require('./maid/maid').create(main);
-    maid.saveSeries('http://www.1kkk.com/manhua22709/', 'manga_1', '/Users/shixiao/Desktop/').then(d => console.log(d));
     main.on('closed', function () {
         main = null
     });

@@ -1,0 +1,20 @@
+<html>
+<head>
+    <script>
+        const contents = require('electron').remote.getCurrentWindow().webContents;
+        contents.openDevTools();
+        const Maid = require('./maid');
+        const {getSeriesBookTasks} = require('./tasks');
+        const m = new Maid();
+
+        (async () => {
+            const tasks = await getSeriesBookTasks('http://www.1kkk.com/manhua22709/', 'manga_1', '/Users/shixiao/Desktop/');
+            tasks.forEach(t => m.add(t));
+            m.start();
+        })();
+    </script>
+</head>
+<body>
+<h1>Hello</h1>
+</body>
+</html>
