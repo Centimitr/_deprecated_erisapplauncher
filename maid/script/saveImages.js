@@ -1,4 +1,4 @@
-module.exports = function (dst, total) {
+module.exports = function (dst, total, progressNotifyKey) {
     const fs = require('fs');
     const path = require('path');
     const contents = require('electron').remote.getCurrentWindow().webContents;
@@ -53,12 +53,42 @@ module.exports = function (dst, total) {
         constructor() {
             // state: have been run
             this.states = {};
+            class Listener {
+                constructor(chan, cb) {
+                    this.chan = chan;
+                    this.cb = cb;
+                }
+            }
+            class Client {
+                constructor() {
+                    this.list = [];
+                    this.ipc = require('electron').ipcRenderer;
+                    this.ipc.send('x.reg');
+                    this.ipc.on('x.recv', (e, chan, ...args) => {
+                        this.list.forEach(l => {
+                            if (l.chan === chan) {
+                                l.cb(...args);
+                            }
+                        })
+                    })
+                }
+
+                send(chan, ...args) {
+                    this.ipc.send('x.send', chan, ...args);
+                }
+
+                on(chan, cb) {
+                    this.list.push(new Listener(chan, cb));
+                }
+            }
+            this.c = new Client();
         }
 
         run(id, fn) {
             if (!this.states[id]) {
                 this.states[id] = true;
                 fn();
+                this.c.send(progressNotifyKey, id);
             }
         }
     }
@@ -83,10 +113,10 @@ module.exports = function (dst, total) {
                     x: img.x + 10,
                     y: img.y + 10,
                 });
-                cnt++;
                 if (cnt === total) {
                     resolve();
                 }
+                cnt++;
             };
             const mo = new MutationObserver(() => {
                 const img = qs('#cpimg');

@@ -8,9 +8,25 @@ class BookTask {
         this.dest = './';
         this._complete = false;
         this._start = false;
-        this._onCompleted = null;
+        this._onCompleted = [];
+        this.completedNum = 0;
         this.fn = null;
+        const c = require('./x');
+        const progressNotifyKey = this.url;
+        c.on(progressNotifyKey, () => {
+            this.completedNum++;
+            console.log(name, `progress: [${this.completedNum}/${this.total}]`);
+        });
     }
+
+    transform() {
+        this.Id = this.name;
+        this.Name = this.name;
+        this.Author = '';
+        this.Publisher = 'Anonymous';
+        this.Pages = [];
+        (Array(this.total)).fill(1).map((v, i) => i).map(i => `${i + 1}.webp`).forEach(name => this.Pages.push({Name: name}));
+    };
 
     setDest(parent) {
         this.dest = path.join(parent, this.name);
@@ -20,8 +36,7 @@ class BookTask {
         this.fn = fn;
     }
 
-    start() {
-        console.log(name, 'start!');
+    start() {         console.log(name, 'start!');
         this._start = true;
         if (this.fn) {
             this.fn(this).then(() => this.complete());
@@ -38,8 +53,9 @@ class BookTask {
         if (!this._completed) {
             this._completed = true;
             this._start = false;
+            this.completedNum = this.total;
             if (this._onCompleted) {
-                this._onCompleted();
+                this._onCompleted.forEach(fn => fn(this));
             }
             return true;
         }
@@ -54,7 +70,7 @@ class BookTask {
     }
 
     onCompleted(cb) {
-        this._onCompleted = cb;
+        this._onCompleted.push(cb);
     }
 }
 

@@ -1,3 +1,4 @@
+const {server} = require('./x');
 const gopher = require('./gopher');
 gopher.start();
 
@@ -15,13 +16,9 @@ function createWindow() {
         titleBarStyle: 'hidden-inset',
         // titleBarStyle: 'inset',
         // vibrancy: 'ultra-dark',
+        vibrancy: 'light',
         // show: false,
         // autoHideMenuBar: true,
-        // focusable: false,
-        // movable: false,
-        // resizable: false,
-        // minimizable: false,
-        // maximizable: false,
         webPreferences: {
             webSecurity: false
         }
@@ -104,12 +101,19 @@ function createWindow() {
     //                 label: 'Minimize',
     //                 accelerator: 'CmdOrCtrl+M',
     //                 role: 'minimize'
-    //             },
-    //             {
+    //             }, {
     //                 label: 'Zoom',
+    //                 accelerator: 'Ctrl+Cmd+=',
     //                 role: 'zoom'
-    //             },
-    //             {
+    //             }, {
+    //                 label: 'Always On Top',
+    //                 type: 'checkbox',
+    //                 checked: false,
+    //                 click: function (item, win) {
+    //                     win.setAlwaysOnTop(!win.isAlwaysOnTop());
+    //                     item.checked = win.isAlwaysOnTop();
+    //                 }
+    //             }, {
     //                 type: 'separator'
     //             },
     //             {
@@ -120,13 +124,6 @@ function createWindow() {
     //     }
     //     const menu = Menu.buildFromTemplate(template);
     //     Menu.setApplicationMenu(menu);
-    //
-    //     // main.loadURL(url.format({
-    //     //     pathname: path.join(__dirname, 'docs', 'index.html'),
-    //     //     protocol: 'file:',
-    //     //     slashes: true
-    //     // }));
-    //     //
     // }
 
     const associatePath = process.argv[0];
@@ -138,19 +135,21 @@ function createWindow() {
     gopher.onStart(port => {
         main.webContents.send('port', port)
     });
+
     // main.loadURL(url.format({
     //     pathname: path.join(__dirname, 'app', 'index.html'),
     //     protocol: 'file:',
     //     slashes: true
     // }));
 
-    main.loadURL(url.format({
-        pathname: path.join(__dirname, 'maid', 'maid.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
-    // main.loadURL('http://localhost:4200');
+    // main.loadURL(url.format({
+    //     pathname: path.join(__dirname, 'maid', 'maid.html'),
+    //     protocol: 'file:',
+    //     slashes: true
+    // }));
+    //
+    main.loadURL('http://localhost:4200');
+    // main.loadURL('http://localhost:9000');
 
     // save img from page
     main.on('closed', function () {

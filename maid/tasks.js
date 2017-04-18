@@ -1,5 +1,6 @@
 const fs = require('fs-extra-promise');
 const path = require('path');
+const os = require('os');
 const {BrowserWindow} = require('electron').remote;
 
 const BookTask = require('./bookTask');
@@ -31,7 +32,8 @@ const loadX = async function (url, options) {
 const saveBook = async function (task) {
     const saveImages = async function (task) {
         const win = await loadX(task.url, {show: false, webPreferences: {webSecurity: false}});
-        const e = await win.exec(fn('./script/saveImages', task.dest, task.total));
+        const progressNotifyKey = task.url;
+        const e = await win.exec(fn('./script/saveImages', task.dest, task.total, progressNotifyKey));
         if (e) {
             console.warn(e);
         }
@@ -45,11 +47,13 @@ const saveBook = async function (task) {
         //     task.add(new ImgTask(url, dst, i));
         // }
     }
-    await fs.writeJsonAsync(path.join(dst, 'book.json'), task);
     await saveImages(task);
+    task.transform();
+    await fs.writeJsonAsync(path.join(dst, 'book.json'), task);
 };
-const getSeriesBookTasks = async function (url, name, dst) {
-    dst = path.join(dst, name);
+const getSeriesBookTasks = async function (url) {
+    const dst = path.join(os.tmpdir(), 'com.devbycm.eris', url);
+    console.log(dst);
     await fs.ensureDirAsync(dst);
     const win = await loadX(url, {show: false});
     const args = await win.exec(fn('./script/getBooks'));

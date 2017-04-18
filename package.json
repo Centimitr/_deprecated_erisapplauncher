@@ -12,7 +12,7 @@
   "keywords": [],
   "author": "Centimitr",
   "devDependencies": {
-    "electron": "^1.6.3",
+    "electron": "^1.6.6",
     "electron-builder": "next"
   },
   "build": {
@@ -27,9 +27,14 @@
     ],
     "fileAssociations": {
       "ext": [
+        "webp",
         "jpg",
+        "jpeg",
         "png",
-        "gif"
+        "gif",
+        "zip",
+        "rar",
+        "eris"
       ]
     }
   },
