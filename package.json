@@ -12,8 +12,8 @@
   "keywords": [],
   "author": "Centimitr",
   "devDependencies": {
-    "electron": "^1.6.6",
-    "electron-builder": "next"
+    "electron": "^1.6.7",
+    "electron-builder": "^17.0.1"
   },
   "build": {
     "appId": "com.devbycm.eris",
