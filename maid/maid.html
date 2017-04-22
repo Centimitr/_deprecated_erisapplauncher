@@ -2,6 +2,10 @@
 <head>
     <script src="_angular.js"></script>
     <style>
+        body {
+            background-color: white;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -134,16 +138,19 @@
         .controller('appCtrl', function ($scope) {
             $scope.tasks = [];
             $scope.add = function () {
+                console.log(m);
                 if (m) {
                     (async () => {
-                        const url = clipboard.readText();
+                        let url = clipboard.readText();
+                        console.log(url);
                         if (!url.startsWith('http')) {
                             console.warn('url not start with http:', url);
-                            return;
+//                            return;
                         }
 //                        const url = 'http://www.1kkk.com/manhua34953/';
 //                        const tasks = await getSeriesBookTasks('http://www.1kkk.com/manhua22709/');
-                        console.log(url);
+//                        console.log(url);
+                        url = 'http://www.1kkk.com/manhua18417/';
                         const tasks = await getSeriesBookTasks(url);
                         console.log(tasks);
                         tasks.forEach(t => m.add(t));

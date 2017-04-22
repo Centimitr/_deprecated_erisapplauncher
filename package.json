@@ -21,7 +21,10 @@
     "mac": {
       "category": "your.app.category.type"
     },
-    "compression": "store",
+    "mac": {
+      "target": "dmg"
+    },
+    "compression": "maximum",
     "asarUnpack": [
       "renders"
     ],

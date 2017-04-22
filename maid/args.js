@@ -1,23 +1,14 @@
-const {ipcRenderer} = require('electron');
+const {ipcRenderer} = window['require']('electron');
 
 class Args {
 
     constructor() {
+        this.sema = 0;
         this._promise = new Promise(resolve => this._resolve = resolve);
-        ipcRenderer.on('path', (event, message) => {
-            // console.log('path:', message);
-            this.path = message;
-            this.check();
-        });
-        ipcRenderer.on('port', (event, message) => {
-            // console.log('port:', message);
-            this.port = message;
-            this.check();
-        });
     }
 
     check() {
-        if (this._resolve && this.path && this.port) {
+        if (this._resolve && this.sema >= 2) {
             this._resolve();
         }
     }
@@ -27,4 +18,19 @@ class Args {
     }
 }
 
-module.exports = new Args();
+const args = new Args();
+
+ipcRenderer.on('path', (event, message) => {
+    console.warn('PATH:', message);
+    args.path = message;
+    args.sema++;
+    args.check();
+});
+ipcRenderer.on('port', (event, message) => {
+    console.warn('PORT:', message);
+    args.port = message;
+    args.sema++;
+    args.check();
+});
+
+module.exports = args;

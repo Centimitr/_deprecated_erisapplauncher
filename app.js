@@ -6,17 +6,23 @@ const {app, Menu, BrowserWindow} = require('electron');
 const path = require('path');
 const url = require('url');
 
+let associatePath;
+
 let main;
 function createWindow() {
+    const size = require('electron').screen.getPrimaryDisplay().workAreaSize;
+    const wh = Math.floor(size.height * 0.85), ww = Math.floor(wh / 0.618);
     main = new BrowserWindow({
-        width: 860, height: 640,
+        width: ww, height: wh,
+        minWidth: 480, minHeight: 320,
         // x: 48, y: 64,
         // frame: false,
         // alwaysOnTop: true,
         titleBarStyle: 'hidden-inset',
         // titleBarStyle: 'inset',
         // vibrancy: 'ultra-dark',
-        vibrancy: 'light',
+        // vibrancy: 'light',
+        backgroundColor: '#000000',
         show: false,
         // autoHideMenuBar: true,
         webPreferences: {
@@ -25,6 +31,10 @@ function createWindow() {
     });
     {
         const template = [
+            {
+                label: 'Open',
+                submenu: []
+            },
             {
                 label: 'View',
                 submenu: [
@@ -91,7 +101,7 @@ function createWindow() {
                 ]
             });
             // Window menu.
-            template[2].submenu = [
+            template[3].submenu = [
                 {
                     label: 'Close',
                     accelerator: 'CmdOrCtrl+W',
@@ -136,7 +146,6 @@ function createWindow() {
         Menu.setApplicationMenu(menu);
     }
 
-    const associatePath = process.argv[0];
     main.webContents.on('dom-ready', () => {
         main.webContents.send('path', associatePath);
         main.webContents.send('port', gopher.port);
@@ -146,19 +155,21 @@ function createWindow() {
         main.webContents.send('port', port)
     });
 
-    main.loadURL('http://localhost:4200');
-    // main.loadURL(url.format({
-    //     pathname: path.join(__dirname, 'app', 'index.html'),
-    //     protocol: 'file:',
-    //     slashes: true
-    // }));
+    // main.loadURL('file://' + path.join(__dirname, 'test.html?p=' + associatePath));
+    // main.webContents.openDevTools();
+    // main.loadURL('http://localhost:4200');
+    main.loadURL(url.format({
+        pathname: path.join(__dirname, 'app', 'index.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
 
     // main.loadURL(url.format({
     //     pathname: path.join(__dirname, 'maid', 'maid.html'),
     //     protocol: 'file:',
     //     slashes: true
     // }));
-    //
+
     // main.loadURL('http://localhost:9000');
 
     // save img from page
@@ -167,6 +178,10 @@ function createWindow() {
     });
 }
 
+app.on('open-file', (e, p) => {
+    console.log(e, p);
+    associatePath = p;
+});
 app.on('ready', createWindow);
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') {

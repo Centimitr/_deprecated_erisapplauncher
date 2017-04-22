@@ -1,6 +1,6 @@
 webpackJsonp([1,4],{
 
-/***/ 143:
+/***/ 144:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
@@ -18,7 +18,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 144:
+/***/ 145:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
@@ -36,7 +36,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 145:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
@@ -54,7 +54,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 146:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
@@ -72,7 +72,7 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 147:
+/***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(13)();
@@ -90,47 +90,213 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 152:
-/***/ (function(module, exports) {
-
-module.exports = "<reader [path]=\"path\" [refresh]=\"refresh\" (ok)=\"onOk()\" (fail)=\"onFail($event)\"></reader>\n<header class=\"titlebar\"></header>\n"
-
-/***/ }),
-
 /***/ 153:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"pages\" #pages\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\">\n  <viewer #page *ngFor=\"let p of book?.meta?.Pages; let i = index;\"\n          [config]=\"config\"\n          [hidden]=\"config.isContinuousScroll()? false: (i+1!==book.current)\"\n          [height]=\"p | pageHeight:[pages,config.scale]\"\n          [id]=\"'page-'+(i+1)\"\n          [class]=\"i\"\n          [page]=\"i+1\"\n          [cache]=\"inCacheRange(i+1)\"\n          [path]=\"book.getPageFilePath(p.Id)\"\n          [meta]=\"p\"\n          (attention)=\"book.updateCurrent(i+1)\"\n          (click)=\"book.next(i+1, true)\">\n  </viewer>\n</section>\n<section class=\"layer\">\n  <section class=\"panel progress\" *ngIf=\"book?.total\">\n    {{book?.current}} / {{book?.total}}\n  </section>\n</section>\n"
+module.exports = "<reader [path]=\"path\" [refresh]=\"refresh\" (ok)=\"onOk()\" (fail)=\"open()\"></reader>\n<header class=\"titlebar\"></header>\n"
 
 /***/ }),
 
 /***/ 154:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"viewer\" #viewer\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\"\n         [class.overflow]=\"config.isSinglePage()&&isOverflow(height, viewer)\"\n         [style.height.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\"\n         [style.minHeight.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\"\n         [style.maxHeight.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\">\n  <div class=\"loading\">\n    <div class=\"words\">\n      <div class=\"page\">Page {{page}}</div>\n      <!--<div class=\"status\">{{meta.Type}}: {{meta.Width}}-{{meta.Height}}</div>-->\n      <div class=\"status\">loading...</div>\n    </div>\n  </div>\n  <img #img [src]=\"path\"\n       [style.paddingTop.vh]=\"config.whenSinglePage(config.ui.view.singlePage.before)\"\n       [style.paddingBottom.vh]=\"config.whenSinglePage(config.ui.view.singlePage.after)\"\n       [style.maxHeight.px]=\"config.whenNotFullWidth(height)\"\n       [style.minWidth.%]=\"config.whenFullWidth(100)\"\n       [style.width.%]=\"config.whenFullWidth(100)\"\n       [class.visible]=\"show && inView\"\n       *ngIf=\"cache\"\n       (load)=\"onLoad($event, img)\">\n</section>\n"
+module.exports = "<section class=\"pages\" #pages\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\">\n  <viewer #page *ngFor=\"let p of book?.meta?.Pages; let i = index;\"\n          [config]=\"config\"\n          [hidden]=\"config.isContinuousScroll()? false: (i+1!==book.current)\"\n          [id]=\"'page-'+(i+1)\"\n          [class]=\"i\"\n          [page]=\"i+1\"\n          [cache]=\"inCacheRange(i+1)\"\n          [path]=\"book.getPageFilePath(p.Id)\"\n          [meta]=\"p\"\n          (attention)=\"book.updateCurrent(i+1)\">\n  </viewer>\n</section>\n<section class=\"layer\">\n  <section class=\"panel progress\" *ngIf=\"book?.total\">\n    {{book?.current}} / {{book?.total}}\n  </section>\n</section>\n"
 
 /***/ }),
 
-/***/ 179:
+/***/ 155:
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"viewer\" #viewer\n         [class.overflow]=\"overflow | async\"\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\"\n         [style.height.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\"\n         [style.minHeight.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\"\n         [style.maxHeight.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\">\n  <div class=\"loading\">\n    <div class=\"words\">\n      <div class=\"page\">Page {{page}}</div>\n      <!--<div class=\"status\">{{meta.Type}}: {{meta.Width}}-{{meta.Height}}</div>-->\n      <div class=\"status\">loading...</div>\n    </div>\n  </div>\n  <img #img [src]=\"path\"\n       [style.marginTop.vh]=\"config.whenSinglePage(config.whenNotFullHeight(config.ui.view.singlePage.before))\"\n       [style.marginBottom.vh]=\"config.whenSinglePage(config.whenNotFullHeight(config.ui.view.singlePage.after))\"\n       [style.maxHeight.px]=\"config.whenNotFullWidth(height)\"\n       [style.minWidth.%]=\"config.whenFullWidth(100)\"\n       [style.width.%]=\"config.whenFullWidth(100)\"\n       [class.visible]=\"show && inView\"\n       *ngIf=\"cache\"\n       (load)=\"onLoad()\">\n</section>\n"
+
+/***/ }),
+
+/***/ 180:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(74);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
 
-/***/ 48:
+/***/ 29:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const qs = __webpack_require__(151);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MenuItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppMenu; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+const electron = window['require']('electron');
+const { app, Menu, MenuItem } = electron.remote;
+const process = window['process'];
+
+const getTemplate = function () {
+    const template = [
+        {
+            label: 'File',
+            submenu: []
+        },
+        {
+            label: 'View',
+            submenu: [
+                {
+                    role: 'togglefullscreen'
+                }
+            ]
+        },
+        {
+            role: 'window',
+            submenu: [
+                {
+                    role: 'minimize'
+                },
+                {
+                    role: 'close'
+                }
+            ]
+        },
+        {
+            role: 'help',
+            submenu: [
+                {
+                    label: 'Learn More',
+                    click() {
+                        electron.shell.openExternal('http://devbycm.com');
+                    }
+                }
+            ]
+        }
+    ];
+    if (process.platform === 'darwin') {
+        template.unshift({
+            label: app.getName(),
+            submenu: [
+                {
+                    role: 'about'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'services',
+                    submenu: []
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'hide'
+                },
+                {
+                    role: 'hideothers'
+                },
+                {
+                    role: 'unhide'
+                },
+                {
+                    type: 'separator'
+                },
+                {
+                    role: 'quit'
+                }
+            ]
+        });
+        // Window menu.
+        template[3].submenu = [
+            {
+                label: 'Close',
+                accelerator: 'CmdOrCtrl+W',
+                role: 'close'
+            },
+            {
+                label: 'Minimize',
+                accelerator: 'CmdOrCtrl+M',
+                role: 'minimize'
+            }, {
+                label: 'Zoom',
+                accelerator: 'Ctrl+Cmd+=',
+                role: 'zoom'
+            }, {
+                label: 'Always On Top',
+                type: 'checkbox',
+                checked: false,
+                click: function (item, win) {
+                    win.setAlwaysOnTop(!win.isAlwaysOnTop());
+                    item.checked = win.isAlwaysOnTop();
+                }
+            }, {
+                type: 'separator'
+            }, {
+                label: 'Developer Tools',
+                accelerator: 'Cmd+Alt+I',
+                click: function (item, win) {
+                    if (!win.webContents.isDevToolsOpened()) {
+                        win.webContents.openDevTools();
+                    }
+                }
+            }, {
+                type: 'separator'
+            },
+            {
+                label: 'Bring All to Front',
+                role: 'front'
+            }
+        ];
+    }
+    return Menu.buildFromTemplate(template);
+};
+let AppMenu = class AppMenu {
+    constructor() {
+        this.current = getTemplate();
+    }
+    get() {
+        return this.current;
+    }
+    getSubMenu(index) {
+        return this.current.items[index].submenu;
+    }
+    file() {
+        return this.getSubMenu(1);
+    }
+    view() {
+        return this.getSubMenu(2);
+    }
+    set() {
+        Menu.setApplicationMenu(this.current);
+    }
+    reset() {
+        this.current = getTemplate();
+        this.set();
+    }
+};
+AppMenu = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])()
+], AppMenu);
+
+//# sourceMappingURL=menu.js.map
+
+/***/ }),
+
+/***/ 49:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const qs = __webpack_require__(152);
 const { ipcRenderer } = window['require']('electron');
 class Args {
     constructor() {
+        this.sema = 0;
         this._promise = new Promise(resolve => this._resolve = resolve);
     }
     check() {
-        if (this._resolve && this.path && this.port) {
+        if (this._resolve && this.sema >= 2) {
             this._resolve();
         }
     }
@@ -142,13 +308,15 @@ class Args {
 
 const args = new Args();
 ipcRenderer.on('path', (event, message) => {
-    // console.log('path:', message);
+    console.warn('PATH:', message);
     args.path = message;
+    args.sema++;
     args.check();
 });
 ipcRenderer.on('port', (event, message) => {
-    // console.log('port:', message);
+    console.warn('PORT:', message);
     args.port = message;
+    args.sema++;
     args.check();
 });
 /* harmony default export */ __webpack_exports__["a"] = args;
@@ -156,7 +324,7 @@ ipcRenderer.on('port', (event, message) => {
 
 /***/ }),
 
-/***/ 49:
+/***/ 50:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -255,7 +423,7 @@ class RustyLock {
         }
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = RustyLock;
+/* harmony export (immutable) */ __webpack_exports__["b"] = RustyLock;
 
 class Checker {
     constructor(freq) {
@@ -282,7 +450,7 @@ class Checker {
         clearInterval(this.timer);
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["c"] = Checker;
+/* harmony export (immutable) */ __webpack_exports__["d"] = Checker;
 
 class ABMap {
     constructor(enumArr) {
@@ -303,16 +471,91 @@ class ABMap {
         return this.mapA[a];
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["b"] = ABMap;
+/* harmony export (immutable) */ __webpack_exports__["a"] = ABMap;
+
+class Semaphore {
+    constructor(permits) {
+        this.permits = permits;
+        this.initial = permits;
+    }
+    set(p) {
+        this.permits = p;
+    }
+    reset() {
+        return this.permits = this.initial;
+    }
+    get() {
+        return this.permits;
+    }
+    wait(success, error) {
+        if (this.permits > 0) {
+            success && success();
+            this.permits--;
+            return true;
+        }
+        else {
+            error && error();
+            return false;
+        }
+    }
+    release() {
+        this.permits++;
+        return this.permits;
+    }
+}
+/* unused harmony export Semaphore */
+
+class Change {
+    constructor(initial) {
+        this.v = initial;
+    }
+    changed(n) {
+        if (n !== this.v) {
+            this.v = n;
+            return true;
+        }
+        return false;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["c"] = Change;
 
 //# sourceMappingURL=util.js.map
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+let cnt = 0;
+const pt = v => console.log(cnt++, v);
+class ConfigItem {
+    constructor(v) {
+        this.listeners = [];
+        this.value = v;
+    }
+    set(v) {
+        const old = this.value;
+        this.value = v;
+        if (old !== this.value) {
+            this.listeners.forEach(cb => cb(this.value, old));
+        }
+    }
+    get() {
+        return this.value;
+    }
+    change(cb) {
+        return this.listeners.push(cb);
+    }
+    toValue() {
+        return this.value;
+    }
+    toString() {
+        return this.toValue().toString();
+    }
+}
+/* unused harmony export ConfigItem */
+
 class Config {
     constructor() {
         // appearance
@@ -330,15 +573,12 @@ class Config {
             }
         };
         // scale
-        this.scale = Config.SCALE_DEFAULT;
+        this.scale = new ConfigItem(Config.SCALE_DEFAULT);
         // view
-        this.view = Config.VIEW_SINGLE_PAGE;
-    }
-    setScale(s) {
-        this.scale = s;
+        this.view = new ConfigItem(Config.VIEW_SINGLE_PAGE);
     }
     isFullWidth() {
-        return this.scale === Config.SCALE_FULL_WIDTH;
+        return this.scale.get() === Config.SCALE_FULL_WIDTH;
     }
     whenFullWidth(v) {
         if (this.isFullWidth()) {
@@ -350,11 +590,21 @@ class Config {
             return v;
         }
     }
-    setView(v) {
-        this.view = v;
+    isFullHeight() {
+        return this.scale.get() === Config.SCALE_FULL_HEIGHT;
+    }
+    whenFullHeight(v) {
+        if (this.isFullHeight()) {
+            return v;
+        }
+    }
+    whenNotFullHeight(v) {
+        if (!this.isFullHeight()) {
+            return v;
+        }
     }
     isContinuousScroll() {
-        return this.view === Config.VIEW_CONTINUOUS_SCROLL;
+        return this.view.get() === Config.VIEW_CONTINUOUS_SCROLL;
     }
     whenContinuousScroll(v) {
         if (this.isContinuousScroll()) {
@@ -362,7 +612,7 @@ class Config {
         }
     }
     isSinglePage() {
-        return this.view === Config.VIEW_SINGLE_PAGE;
+        return this.view.get() === Config.VIEW_SINGLE_PAGE;
     }
     whenSinglePage(v) {
         if (this.isSinglePage()) {
@@ -372,10 +622,10 @@ class Config {
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Config;
 
-Config.SCALE_MIN = 100;
 Config.SCALE_DEFAULT = 150;
+Config.SCALE_FULL_HEIGHT = 100;
 Config.SCALE_FULL_WIDTH = Infinity;
-Config.SCALE_ALL = [Config.SCALE_MIN, Config.SCALE_DEFAULT, Config.SCALE_FULL_WIDTH];
+Config.SCALE_ALL = [Config.SCALE_FULL_HEIGHT, Config.SCALE_DEFAULT, Config.SCALE_FULL_WIDTH];
 Config.VIEW_CONTINUOUS_SCROLL = 0;
 Config.VIEW_SINGLE_PAGE = 1;
 Config.VIEW_ALL = [Config.VIEW_CONTINUOUS_SCROLL, Config.VIEW_SINGLE_PAGE];
@@ -383,14 +633,14 @@ Config.VIEW_ALL = [Config.VIEW_CONTINUOUS_SCROLL, Config.VIEW_SINGLE_PAGE];
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reader_meta__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reader_config__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reader_meta__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reader_config__ = __webpack_require__(51);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewerComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -424,11 +674,20 @@ let ViewerComponent = class ViewerComponent {
         this.enter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
         this.leave = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
         this.attention = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
+        this.c = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["c" /* Change */]();
         this.elm = elm.nativeElement;
+        this.elm.addEventListener('ready', e => console.log(e));
+        this.overflow = new Promise(resolve => this.resolveOverflow = resolve);
+    }
+    scrollTo() {
+        this.elm.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     }
     ngOnInit() {
         return __awaiter(this, void 0, void 0, function* () {
-            const checker = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["c" /* Checker */](50);
+            const checker = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["d" /* Checker */](50);
             const io = new IntersectionObserver(() => {
                 this.inView = !this.inView;
                 if (this.inView) {
@@ -456,26 +715,40 @@ let ViewerComponent = class ViewerComponent {
                 }
             });
             io.observe(this.elm);
+            this.setHeight();
+            this.config.scale.change(() => {
+                this.zone.run(() => {
+                    this.setHeight();
+                });
+            });
         });
     }
-    getHeight(s) {
+    onResize() {
+        this.setHeight();
+    }
+    setHeight() {
         const pages = this.elm.parentElement;
         const p = this.meta;
         const xScale = 100;
-        const yScale = s + 1 - 1;
+        const yScale = this.config.scale.get();
         const [w, h] = [xScale / 100 * pages.offsetWidth, yScale / 100 * pages.offsetHeight];
         const scale = Math.min(1, w / p.Width, h / p.Height);
-        return p.Height * scale;
+        return this.height = p.Height * scale;
     }
     ngOnChanges(changes) {
     }
-    onLoad(e, img) {
-        this.show = true;
-    }
-    isOverflow(height, base) {
-        if (base.offsetHeight) {
-            return base.offsetHeight < height;
+    checkOverflow() {
+        const h = this.elm.parentElement.offsetHeight;
+        const changed = this.c.changed(`${h}.${this.height}`);
+        if (changed && h) {
+            this.overflow = new Promise(r => r(h < this.height));
         }
+    }
+    ngAfterContentChecked() {
+        this.checkOverflow();
+    }
+    onLoad() {
+        this.show = true;
     }
 };
 __decorate([
@@ -490,10 +763,6 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Input */])(),
     __metadata("design:type", Number)
 ], ViewerComponent.prototype, "page", void 0);
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Input */])(),
-    __metadata("design:type", Number)
-], ViewerComponent.prototype, "height", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Input */])(),
     __metadata("design:type", Boolean)
@@ -514,11 +783,17 @@ __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Output */])(),
     __metadata("design:type", Object)
 ], ViewerComponent.prototype, "attention", void 0);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:resize', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ViewerComponent.prototype, "onResize", null);
 ViewerComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
         selector: 'viewer',
-        template: __webpack_require__(154),
-        styles: [__webpack_require__(147)]
+        template: __webpack_require__(155),
+        styles: [__webpack_require__(148)]
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* ElementRef */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _d || Object])
 ], ViewerComponent);
@@ -528,7 +803,7 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 73:
+/***/ 74:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -537,25 +812,25 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 73;
+webpackEmptyContext.id = 74;
 
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment_prod__ = __webpack_require__(90);
 
 
 
 
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment_prod__["a" /* environment */].production) {
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
@@ -563,12 +838,13 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 81:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_args__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_args__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_menu__ = __webpack_require__(29);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -589,30 +865,54 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 
 
+
 const electron = window['require']('electron');
 const { webFrame } = electron;
 const { dialog, getCurrentWindow } = electron.remote;
 let AppComponent = class AppComponent {
-    constructor(zone) {
+    constructor(zone, m) {
         this.zone = zone;
+        this.m = m;
         this.refresh = 0;
+    }
+    whenOpen() {
+        this.m.reset();
+        const fm = this.m.file();
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["b" /* MenuItem */]({
+            label: 'Open...',
+            accelerator: 'CmdOrCtrl+O',
+            enable: true,
+            click: () => this.zone.run(() => this.open())
+        }));
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["b" /* MenuItem */]({
+            label: 'Save as...',
+            accelerator: 'CmdOrCtrl+Shift+S',
+            click() {
+                console.log('SAVE AS.');
+            }
+        }));
+        this.m.set();
     }
     ngOnInit() {
         return __awaiter(this, void 0, void 0, function* () {
             webFrame.setVisualZoomLevelLimits(1, 1);
+            webFrame.setLayoutZoomLevelLimits(1, 1);
             yield __WEBPACK_IMPORTED_MODULE_1__lib_args__["a" /* default */].wait();
             const path = __WEBPACK_IMPORTED_MODULE_1__lib_args__["a" /* default */].path;
-            console.warn('PATH:', path);
-            this.path = path;
-            // this.path = '/Users/shixiao/Pictures';
-            // this.path = '/Users/shixiao/Downloads/a/top20/8';
+            if (!path) {
+                this.open();
+            }
+            else {
+                this.path = path;
+                this.whenOpen();
+            }
         });
     }
     onOk() {
         getCurrentWindow().show();
     }
-    onFail(e) {
-        console.warn('FAIL:', e);
+    open() {
+        this.whenOpen();
         this.path = dialog.showOpenDialog({ properties: ['openFile', 'openDirectory'] }).pop();
         this.refresh++;
     }
@@ -620,30 +920,31 @@ let AppComponent = class AppComponent {
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(152),
-        styles: [__webpack_require__(143)]
+        template: __webpack_require__(153),
+        styles: [__webpack_require__(144)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__lib_menu__["a" /* AppMenu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__lib_menu__["a" /* AppMenu */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 82:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__viewer_viewer_component__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__trust_resource_url_pipe__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reader_reader_component__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_height_pipe__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__viewer_viewer_component__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__trust_resource_url_pipe__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reader_reader_component__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_height_pipe__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_menu__ = __webpack_require__(29);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -651,6 +952,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -676,7 +978,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_9__lib_menu__["a" /* AppMenu */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -685,11 +987,11 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 83:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return setTouchBar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return setTouchBar; });
 /* unused harmony export TouchBarButton */
 /* unused harmony export TouchBarColorPicker */
 /* unused harmony export TouchBarGroup */
@@ -697,7 +999,7 @@ AppModule = __decorate([
 /* unused harmony export TouchBarPopover */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TouchBarSlider; });
 /* unused harmony export TouchBarSpacer */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return TouchBarSegmentedControl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return TouchBarSegmentedControl; });
 /* unused harmony export TouchBarScrubber */
 const electron = window['require']('electron');
 const { getCurrentWindow, TouchBar } = electron.remote;
@@ -712,11 +1014,11 @@ const setTouchBar = function (args) {
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageHeightPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -745,11 +1047,11 @@ PageHeightPipe = __decorate([
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_args__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_args__ = __webpack_require__(49);
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -765,8 +1067,8 @@ class Book {
         this._onPage = [];
         this.locator = path;
     }
-    bind(elms) {
-        this._viewers = elms;
+    bind(viewers) {
+        this._viewers = viewers;
     }
     get current() {
         return this._current;
@@ -810,17 +1112,11 @@ class Book {
             if (this.config.isSinglePage()) {
                 this.current = page;
                 setTimeout(() => {
-                    viewer.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    viewer.scrollTo();
                 }, 0);
             }
             else {
-                viewer.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                viewer.scrollTo();
             }
         }
         return ok;
@@ -847,7 +1143,7 @@ class Book {
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -863,16 +1159,17 @@ class BookMeta {
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__book__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewer_viewer_component__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__book__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewer_viewer_component__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_menu__ = __webpack_require__(29);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReaderComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -897,10 +1194,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 
 
 
+
 const fs = window['require']('fs');
+const { Menu, MenuItem } = window['require']('electron').remote;
 let ReaderComponent = class ReaderComponent {
-    constructor(zone) {
+    constructor(zone, m) {
         this.zone = zone;
+        this.m = m;
         this.scale = 133;
         this.ok = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
         this.fail = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
@@ -924,11 +1224,73 @@ let ReaderComponent = class ReaderComponent {
                 }
                 this.ok.emit();
                 this.viewers.changes.subscribe(() => {
-                    this.book.bind(this.viewers.map(viewer => viewer.elm));
+                    this.book.bind(this.viewers.map(v => v));
                 });
+                const barScaleMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["a" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].SCALE_ALL);
+                const barViewMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["a" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_ALL);
+                const setView = i => {
+                    this.zone.run(() => {
+                        this.config.view.set(barViewMap.getB(i));
+                    });
+                };
+                const setScale = i => {
+                    this.zone.run(() => {
+                        this.config.scale.set(barScaleMap.getB(i));
+                    });
+                };
+                // menu
+                const vm = this.m.view();
+                const append = (vm, ...itemsArr) => {
+                    itemsArr.forEach(items => {
+                        vm.append(new MenuItem({ type: 'separator' }));
+                        items.forEach(item => vm.append(item));
+                    });
+                };
+                const viewItems = ['Continuous Scroll', 'Single Page'].map((label, i) => new MenuItem({
+                    label,
+                    accelerator: `CmdOrCtrl+${i + 1}`,
+                    type: 'radio',
+                    click: () => setView(i),
+                    checked: barViewMap.getA(this.config.view.get()) === i,
+                }));
+                const scaleItems = ['Full Page', 'Default', 'Width FullFilled'].map((label, i) => new MenuItem({
+                    label,
+                    accelerator: `CmdOrCtrl+Alt+${i + 1}`,
+                    type: 'radio',
+                    click: () => setScale(i),
+                    checked: barScaleMap.getA(this.config.scale.get()) === i,
+                })).concat([new MenuItem({
+                        label: 'Zoom In',
+                        accelerator: 'CmdOrCtrl+Plus'
+                    }), new MenuItem({
+                        label: 'Zoom Out',
+                        accelerator: 'CmdOrCtrl+-'
+                    })
+                ]);
+                const goItems = ['First Page', 'Previous Page', 'Next Page'].map((label, i) => new MenuItem({
+                    label,
+                    accelerator: [null, 'Left', 'Right'][i],
+                    click: () => {
+                        this.zone.run(() => {
+                            switch (i) {
+                                case 0:
+                                    this.book.go(1);
+                                    break;
+                                case 1:
+                                    this.book.prev();
+                                    break;
+                                case 2:
+                                    this.book.next();
+                                    break;
+                            }
+                        });
+                    }
+                }));
+                append(vm, viewItems, scaleItems, goItems);
+                this.m.set();
                 // touchBar
                 const getProgressStr = (current = this.book.current) => current + '/' + this.book.total;
-                const lock = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["a" /* RustyLock */]();
+                const lock = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["b" /* RustyLock */]();
                 const slider = new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["a" /* TouchBarSlider */]({
                     label: getProgressStr(),
                     value: this.book.current,
@@ -940,28 +1302,31 @@ let ReaderComponent = class ReaderComponent {
                         lock.lock(175);
                     }
                 });
+                const viewCtrl = new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["b" /* TouchBarSegmentedControl */]({
+                    segments: [
+                        { label: 'Scroll' },
+                        { label: 'Single' },
+                    ],
+                    selectedIndex: barViewMap.getA(this.config.view.get()),
+                    change: i => setView(i)
+                });
+                const scaleCtrl = new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["b" /* TouchBarSegmentedControl */]({
+                    segments: [
+                        { label: 'Page' },
+                        { label: 'Default' },
+                        { label: 'Width' },
+                    ],
+                    selectedIndex: barScaleMap.getA(this.config.scale.get()),
+                    change: i => setScale(i)
+                });
                 this.book.onPage((current) => {
                     lock.run(() => {
                         slider.value = current;
                         slider.label = getProgressStr(current);
                     });
                 });
-                const barScaleMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["b" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].SCALE_ALL);
-                const barViewMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["b" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_ALL);
-                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["b" /* setTouchBar */])([
-                    new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["c" /* TouchBarSegmentedControl */]({
-                        segments: [
-                            { label: 'Scroll' },
-                            { label: 'Single' },
-                        ],
-                        selectedIndex: barViewMap.getA(this.config.view),
-                        change: selectedIndex => {
-                            this.zone.run(() => {
-                                this.config.setView(barViewMap.getB(selectedIndex));
-                                console.log(this.config);
-                            });
-                        }
-                    }),
+                __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["c" /* setTouchBar */])([
+                    viewCtrl,
                     // new TouchBarButton({label: 'Page 1', click: () => this.zone.run(() => this.book.go(1))}),
                     slider,
                     // new TouchBarScrubber({
@@ -970,20 +1335,24 @@ let ReaderComponent = class ReaderComponent {
                     //   mode: 'free',
                     //   selectedStyle: 'outline',
                     // }),
-                    new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["c" /* TouchBarSegmentedControl */]({
-                        segments: [
-                            { label: 'H 100%' },
-                            { label: 'Auto' },
-                            { label: 'W 100%' },
-                        ],
-                        selectedIndex: barScaleMap.getA(this.config.scale),
-                        change: selectedIndex => {
-                            this.zone.run(() => {
-                                this.config.setScale(barScaleMap.getB(selectedIndex));
-                            });
-                        }
-                    }),
+                    scaleCtrl,
                 ]);
+                this.config.view.change(n => {
+                    const index = __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_ALL.indexOf(n);
+                    viewItems.filter((item, i) => i === index).forEach(item => item.checked = true);
+                    viewCtrl.selectedIndex = index;
+                    // hack scale
+                    if (n === __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_CONTINUOUS_SCROLL) {
+                        const viewer = this.viewers.filter((v, i) => i + 1 === this.book.current)[0];
+                        setTimeout(() => {
+                            viewer.scrollTo();
+                        }, 0);
+                    }
+                });
+                this.config.scale.change(n => {
+                    const index = __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].SCALE_ALL.indexOf(n);
+                    scaleItems.filter((item, i) => i === index).forEach(item => item.checked = true);
+                });
             }
         });
     }
@@ -992,6 +1361,7 @@ let ReaderComponent = class ReaderComponent {
         console.log(this.scale);
     }
     // @HostListener('window:keydown.arrowUp', ['$event'])
+    // @HostListener('window:keydown.arrowLeft', ['$event'])
     prev() {
         if (this.book) {
             this.zone.run(() => {
@@ -1001,6 +1371,7 @@ let ReaderComponent = class ReaderComponent {
     }
     ;
     // @HostListener('window:keydown.arrowDown', ['$event'])
+    // @HostListener('window:keydown.arrowRight', ['$event'])
     next() {
         if (this.book) {
             this.zone.run(() => {
@@ -1012,14 +1383,6 @@ let ReaderComponent = class ReaderComponent {
     onResize() {
         console.warn('RESIZED!');
     }
-    // private inCacheRange(page: number): boolean {
-    //   const BACKWARD = 2;
-    //   const FORWARD = 5;
-    //   const current = this.book.current;
-    //   if (current - BACKWARD <= page && page <= current + FORWARD) {
-    //     return true;
-    //   }
-    // }
     inCacheRange(page) {
         // let distance = 1e10;
         // this.recorder.stack.map(id => parseInt(id)).forEach(p => {
@@ -1032,6 +1395,12 @@ let ReaderComponent = class ReaderComponent {
         const BACKWARD = 3;
         const FORWARD = 7;
         return -1 * BACKWARD <= distance && distance <= FORWARD;
+    }
+    onClick() {
+        this.book.next();
+    }
+    onContextMenu() {
+        this.book.prev();
     }
 };
 __decorate([
@@ -1062,14 +1431,12 @@ __decorate([
 ], ReaderComponent.prototype, "onRightClick", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:keydown.pageUp', ['$event']),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:keydown.arrowLeft', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ReaderComponent.prototype, "prev", null);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:keydown.pageDown', ['$event']),
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:keydown.arrowRight', ['$event']),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
@@ -1080,25 +1447,37 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ReaderComponent.prototype, "onResize", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('click', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ReaderComponent.prototype, "onClick", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('contextmenu', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], ReaderComponent.prototype, "onContextMenu", null);
 ReaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
         selector: 'reader',
-        template: __webpack_require__(153),
-        styles: [__webpack_require__(144), __webpack_require__(146), __webpack_require__(145)],
+        template: __webpack_require__(154),
+        styles: [__webpack_require__(145), __webpack_require__(147), __webpack_require__(146)],
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__lib_menu__["a" /* AppMenu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__lib_menu__["a" /* AppMenu */]) === "function" && _c || Object])
 ], ReaderComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=reader.component.js.map
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(16);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrustResourceUrlPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1132,23 +1511,18 @@ var _a;
 
 /***/ }),
 
-/***/ 89:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
-// The file contents for the current environment will overwrite these during build.
 const environment = {
-    production: false
+    production: true
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = environment;
 
-//# sourceMappingURL=environment.js.map
+//# sourceMappingURL=environment.prod.js.map
 
 /***/ })
 
-},[179]);
+},[180]);
 //# sourceMappingURL=main.bundle.js.map
