@@ -2,7 +2,7 @@ const _path = require('path');
 const spawn = require('child_process').spawn;
 // golang backend support
 const DEVELOPING = process.cwd() !== '/';
-const GOPHER_FILENAME = 'renders';
+const GOPHER_FILENAME = 'Eris Support';
 const DEFAULT_PORT = 4569;
 let gopherPath = _path.join(process.resourcesPath, 'app.asar.unpacked', GOPHER_FILENAME);
 if (DEVELOPING) {

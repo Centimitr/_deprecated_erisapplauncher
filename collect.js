@@ -13,7 +13,9 @@ const TO_STR = `
 `;
 
 // copy
-exec('cp /Users/shixiao/go/src/renders/renders ./');
+const PATH = '/Users/shixiao/go/src/erisapp.com/erisapp.com';
+exec(`cp ${PATH} ./"Eris Support"`);
+exec(`rm ${PATH}`);
 exec('cp -r ../viewer/dist/ ./app/');
 
 // modify

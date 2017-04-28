@@ -1,6 +1,6 @@
 webpackJsonp([2,4],{
 
-/***/ 13:
+/***/ 14:
 /***/ (function(module, exports) {
 
 /*
@@ -57,22 +57,22 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 143:
+/***/ 145:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)();
+exports = module.exports = __webpack_require__(14)();
 // imports
 
 
 // module
-exports.push([module.i, "* {\n  border: 0;\n  padding: 0;\n  margin: 0;\n  outline: none;\n  box-sizing: border-box;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-user-drag: none;\n}\n", ""]);
+exports.push([module.i, "* {\n  border: 0;\n  padding: 0;\n  margin: 0;\n  outline: none;\n  box-sizing: border-box;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-user-drag: none;\n  font-family: \"PingFang SC\", sans-serif;\n  cursor: default;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 178:
+/***/ 180:
 /***/ (function(module, exports) {
 
 /*
@@ -325,24 +325,24 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 182:
+/***/ 184:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(77);
+module.exports = __webpack_require__(78);
 
 
 /***/ }),
 
-/***/ 77:
+/***/ 78:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(143);
+var content = __webpack_require__(145);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(178)(content, {});
+var update = __webpack_require__(180)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -360,5 +360,5 @@ if(false) {
 
 /***/ })
 
-},[182]);
+},[184]);
 //# sourceMappingURL=styles.bundle.js.map

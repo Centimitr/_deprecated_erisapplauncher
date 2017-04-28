@@ -15,136 +15,19 @@ function createWindow() {
     main = new BrowserWindow({
         width: ww, height: wh,
         minWidth: 480, minHeight: 320,
-        // x: 48, y: 64,
-        // frame: false,
-        // alwaysOnTop: true,
         titleBarStyle: 'hidden-inset',
         // titleBarStyle: 'inset',
         // vibrancy: 'ultra-dark',
         // vibrancy: 'light',
         backgroundColor: '#000000',
-        show: false,
+        // show: false,
         // autoHideMenuBar: true,
         webPreferences: {
-            webSecurity: false
+            webSecurity: false,
+            scrollBounce: true,
         }
     });
-    {
-        const template = [
-            {
-                label: 'Open',
-                submenu: []
-            },
-            {
-                label: 'View',
-                submenu: [
-                    {
-                        role: 'togglefullscreen'
-                    }
-                ]
-            },
-            {
-                role: 'window',
-                submenu: [
-                    {
-                        role: 'minimize'
-                    },
-                    {
-                        role: 'close'
-                    }
-                ]
-            },
-            {
-                role: 'help',
-                submenu: [
-                    {
-                        label: 'Learn More',
-                        click () {
-                            require('electron').shell.openExternal('http://devbycm.com')
-                        }
-                    }
-                ]
-            }
-        ];
-        if (process.platform === 'darwin') {
-            template.unshift({
-                label: app.getName(),
-                submenu: [
-                    {
-                        role: 'about'
-                    },
-                    {
-                        type: 'separator'
-                    },
-                    {
-                        role: 'services',
-                        submenu: []
-                    },
-                    {
-                        type: 'separator'
-                    },
-                    {
-                        role: 'hide'
-                    },
-                    {
-                        role: 'hideothers'
-                    },
-                    {
-                        role: 'unhide'
-                    },
-                    {
-                        type: 'separator'
-                    },
-                    {
-                        role: 'quit'
-                    }
-                ]
-            });
-            // Window menu.
-            template[3].submenu = [
-                {
-                    label: 'Close',
-                    accelerator: 'CmdOrCtrl+W',
-                    role: 'close'
-                },
-                {
-                    label: 'Minimize',
-                    accelerator: 'CmdOrCtrl+M',
-                    role: 'minimize'
-                }, {
-                    label: 'Zoom',
-                    accelerator: 'Ctrl+Cmd+=',
-                    role: 'zoom'
-                }, {
-                    label: 'Always On Top',
-                    type: 'checkbox',
-                    checked: false,
-                    click: function (item, win) {
-                        win.setAlwaysOnTop(!win.isAlwaysOnTop());
-                        item.checked = win.isAlwaysOnTop();
-                    }
-                }, {
-                    type: 'separator'
-                }, {
-                    label: 'Developer Tools',
-                    accelerator: 'Cmd+Alt+I',
-                    click: function (item, win) {
-                        if (!win.webContents.isDevToolsOpened()) {
-                            win.webContents.openDevTools();
-                        }
-                    }
-                }, {
-                    type: 'separator'
-                },
-                {
-                    label: 'Bring All to Front',
-                    role: 'front'
-                }
-            ];
-        }
-        const menu = Menu.buildFromTemplate(template);
-        Menu.setApplicationMenu(menu);
-    }
+    Menu.setApplicationMenu(Menu.buildFromTemplate([]));
 
     main.webContents.on('dom-ready', () => {
         main.webContents.send('path', associatePath);
@@ -158,17 +41,17 @@ function createWindow() {
     // main.loadURL('file://' + path.join(__dirname, 'test.html?p=' + associatePath));
     // main.webContents.openDevTools();
     // main.loadURL('http://localhost:4200');
-    main.loadURL(url.format({
-        pathname: path.join(__dirname, 'app', 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));
-
     // main.loadURL(url.format({
-    //     pathname: path.join(__dirname, 'maid', 'maid.html'),
+    //     pathname: path.join(__dirname, 'app', 'index.html'),
     //     protocol: 'file:',
     //     slashes: true
     // }));
+
+    main.loadURL(url.format({
+        pathname: path.join(__dirname, 'maid', 'maid.html'),
+        protocol: 'file:',
+        slashes: true
+    }));
 
     // main.loadURL('http://localhost:9000');
 
@@ -196,3 +79,4 @@ app.on('activate', function () {
 app.on('quit', function () {
     gopher.kill();
 });
+

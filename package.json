@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "electron .",
-    "pack": "build --dir",
-    "dist": "build",
+    "build": "node build.js",
     "collect": "node collect.js"
   },
   "keywords": [],
@@ -18,28 +17,41 @@
   "build": {
     "appId": "com.devbycm.eris",
     "productName": "Eris",
+    "buildVersion": "115",
     "mac": {
-      "category": "your.app.category.type"
-    },
-    "mac": {
+      "category": "your.app.category.type",
       "target": "dmg"
     },
-    "compression": "maximum",
+    "compression": "store",
     "asarUnpack": [
-      "renders"
+      "Eris Support"
     ],
-    "fileAssociations": {
-      "ext": [
-        "webp",
-        "jpg",
-        "jpeg",
-        "png",
-        "gif",
-        "zip",
-        "rar",
-        "eris"
-      ]
-    }
+    "fileAssociations": [
+      {
+        "ext": "webp"
+      },
+      {
+        "ext": "jpg"
+      },
+      {
+        "ext": "jpeg"
+      },
+      {
+        "ext": "png"
+      },
+      {
+        "ext": "gif"
+      },
+      {
+        "ext": "rar"
+      },
+      {
+        "ext": "eris",
+        "name": "Eris Manga File",
+        "icon": "icon.icns",
+        "role": "Viewer"
+      }
+    ]
   },
   "dependencies": {
     "fs-extra-promise": "^1.0.1"

@@ -20,12 +20,11 @@ class BookTask {
     }
 
     transform() {
-        this.Id = this.name;
         this.Name = this.name;
         this.Author = '';
         this.Publisher = 'Anonymous';
         this.Pages = [];
-        (Array(this.total)).fill(1).map((v, i) => i).map(i => `${i + 1}.webp`).forEach(name => this.Pages.push({Name: name}));
+        (Array(this.total)).fill(1).map((v, i) => i).map(i => `${i + 1}.webp`).forEach(name => this.Pages.push({Locator: name}));
     };
 
     setDest(parent) {
@@ -36,7 +35,8 @@ class BookTask {
         this.fn = fn;
     }
 
-    start() {         console.log(name, 'start!');
+    start() {
+        console.log(name, 'start!');
         this._start = true;
         if (this.fn) {
             this.fn(this).then(() => this.complete());

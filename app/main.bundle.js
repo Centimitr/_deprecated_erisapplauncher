@@ -1,14 +1,14 @@
 webpackJsonp([1,4],{
 
-/***/ 144:
+/***/ 146:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)();
+exports = module.exports = __webpack_require__(14)();
 // imports
 
 
 // module
-exports.push([module.i, ".titlebar {\n  height: 28px;\n  -webkit-app-region: drag;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n}\n\nreader {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n", ""]);
+exports.push([module.i, ".titlebar {\n  height: 38px;\n  -webkit-app-region: drag;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  opacity: 0;\n  text-align: center;\n  font-size: 14px;\n  line-height: 38px;\n  color: #ccc;\n  text-shadow: 0 0 1px black;\n  -webkit-transition: opacity 125ms ease-in-out;\n  transition: opacity 125ms ease-in-out;\n}\n\n.titlebar:hover {\n  opacity: 1;\n  background-color: rgba(0, 0, 0, 0.9);\n}\n\nreader {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n}\n\n/*section.cover {*/\n  /*position: fixed;*/\n  /*top: 0;*/\n  /*right: 0;*/\n  /*bottom: 0;*/\n  /*left: 0;*/\n  /*z-index: 1;*/\n  /*background-color: red;*/\n  /*display: flex;*/\n  /*align-items: center;*/\n  /*justify-content: center;*/\n/*}*/\n\n/*section.cover img {*/\n/*}*/\n", ""]);
 
 // exports
 
@@ -18,10 +18,10 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 145:
+/***/ 147:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)();
+exports = module.exports = __webpack_require__(14)();
 // imports
 
 
@@ -36,51 +36,15 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 146:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(13)();
-// imports
-
-
-// module
-exports.push([module.i, ".layer {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  pointer-events: none;\n}\n\n.layer .panel {\n  position: absolute;\n  background-color: #222;\n  border-radius: 10px;\n  color: #ccc;\n  opacity: 0.8;\n  padding: 10px 14px 8px 14px;\n  font-family: 'Monaco', sans-serif;\n  font-size: 14px;\n}\n\n.progress {\n  display: inline-block;\n  top: 18px;\n  right: 18px;\n}\n\n.ctrl {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n}\n\n.ctrl .panel {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n}\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ 147:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(13)();
-// imports
-
-
-// module
-exports.push([module.i, "section.pages {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-flow: column nowrap;\n          flex-flow: column nowrap;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  overflow-scrolling: touch;\n  scroll-behavior: smooth;\n}\n\nviewer {\n  width: 100%;\n}\n\n.pages.singlePage viewer {}\n\n.pages.continuousScroll viewer + viewer {\n  margin-top: 7vh;\n}\n\n\n", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
 /***/ 148:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(13)();
+exports = module.exports = __webpack_require__(14)();
 // imports
 
 
 // module
-exports.push([module.i, "section {\n  text-align: center;\n  position: relative;\n}\n\nsection.singlePage {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\nsection.singlePage.overflow {\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n}\n\n.loading {\n  z-index: -1;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-family: \"American Typewriter\", monospace;\n  opacity: 0.8;\n}\n\n.loading .words {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-flow: column nowrap;\n          flex-flow: column nowrap;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n}\n\n.loading .words .page {\n  font-size: 4vh;\n  margin-bottom: 1vh;\n}\n\n.loading .words .status {\n  font-size: 2.5vh;\n  opacity: 0.8;\n}\n\nimg {\n  box-shadow: 0 0 32px 4px rgba(0, 0, 0, 0.4);\n  /*transition: opacity 750ms ease-in-out;*/\n  /*opacity: 0.6;*/\n  /*animation: loaded 500ms;*/\n}\n\n/*@keyframes loaded {*/\n/*from {*/\n/*opacity: 0.8;*/\n/*filter: blur(2px);*/\n/*}*/\n/*to {*/\n/*filter: blur(0);*/\n/*opacity: 1;*/\n/*}*/\n/*}*/\n\nimg.visible {\n  /*opacity: 1;*/\n}\n", ""]);
+exports.push([module.i, ".layer {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  pointer-events: none;\n}\n\n.layer .panel {\n  position: absolute;\n  background-color: #111;\n  border-radius: 10px;\n  border: 1px solid #222;\n  color: #999;\n  padding: 8px 12px 8px 12px;\n  font-family: \"PingFang SC\", sans-serif;\n  text-shadow: 0 0 2px black;\n  font-size: 16px;\n}\n\n.progress {\n  display: inline-block;\n  top: 18px;\n  right: 18px;\n}\n\n.ctrl {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: stretch;\n      -ms-flex-align: stretch;\n          align-items: stretch;\n}\n\n.ctrl .panel {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n}\n", ""]);
 
 // exports
 
@@ -90,31 +54,67 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 153:
-/***/ (function(module, exports) {
+/***/ 149:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<reader [path]=\"path\" [refresh]=\"refresh\" (ok)=\"onOk()\" (fail)=\"open()\"></reader>\n<header class=\"titlebar\"></header>\n"
+exports = module.exports = __webpack_require__(14)();
+// imports
+
+
+// module
+exports.push([module.i, "section.pages {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-flow: column nowrap;\n          flex-flow: column nowrap;\n  overflow-x: hidden;\n  overflow-y: scroll;\n  overflow-scrolling: touch;\n  scroll-behavior: smooth;\n}\n\nviewer {\n  width: 100%;\n}\n\n\n\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ 154:
-/***/ (function(module, exports) {
+/***/ 150:
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<section class=\"pages\" #pages\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\">\n  <viewer #page *ngFor=\"let p of book?.meta?.Pages; let i = index;\"\n          [config]=\"config\"\n          [hidden]=\"config.isContinuousScroll()? false: (i+1!==book.current)\"\n          [id]=\"'page-'+(i+1)\"\n          [class]=\"i\"\n          [page]=\"i+1\"\n          [cache]=\"inCacheRange(i+1)\"\n          [path]=\"book.getPageFilePath(p.Id)\"\n          [meta]=\"p\"\n          (attention)=\"book.updateCurrent(i+1)\">\n  </viewer>\n</section>\n<section class=\"layer\">\n  <section class=\"panel progress\" *ngIf=\"book?.total\">\n    {{book?.current}} / {{book?.total}}\n  </section>\n</section>\n"
+exports = module.exports = __webpack_require__(14)();
+// imports
+
+
+// module
+exports.push([module.i, "section {\n  text-align: center;\n  position: relative;\n}\n\nsection.singlePage {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\nsection.singlePage.overflow {\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n}\n\n.loading {\n  z-index: -1;\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  color: white;\n  font-family: \"American Typewriter\", monospace;\n  opacity: 0.8;\n}\n\n.loading.hide {\n  opacity: 0;\n  -webkit-transition: opacity 275ms ease-in;\n  transition: opacity 275ms ease-in;\n}\n\n.loading .words {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-flow: column nowrap;\n          flex-flow: column nowrap;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n}\n\n.loading .words .page {\n  font-size: 4vh;\n  margin-bottom: 1vh;\n}\n\n.loading .words .status {\n  font-size: 2.5vh;\n  opacity: 0.8;\n}\n\nimg {\n  box-shadow: 0 0 32px 4px rgba(0, 0, 0, 0.4);\n  opacity: 1;\n  -webkit-transition: 15ms ease;\n  transition: 15ms ease;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
 
 /***/ }),
 
 /***/ 155:
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"viewer\" #viewer\n         [class.overflow]=\"overflow | async\"\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\"\n         [style.height.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\"\n         [style.minHeight.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\"\n         [style.maxHeight.px]=\"config.whenContinuousScroll(config.whenNotFullWidth(height))\">\n  <div class=\"loading\">\n    <div class=\"words\">\n      <div class=\"page\">Page {{page}}</div>\n      <!--<div class=\"status\">{{meta.Type}}: {{meta.Width}}-{{meta.Height}}</div>-->\n      <div class=\"status\">loading...</div>\n    </div>\n  </div>\n  <img #img [src]=\"path\"\n       [style.marginTop.vh]=\"config.whenSinglePage(config.whenNotFullHeight(config.ui.view.singlePage.before))\"\n       [style.marginBottom.vh]=\"config.whenSinglePage(config.whenNotFullHeight(config.ui.view.singlePage.after))\"\n       [style.maxHeight.px]=\"config.whenNotFullWidth(height)\"\n       [style.minWidth.%]=\"config.whenFullWidth(100)\"\n       [style.width.%]=\"config.whenFullWidth(100)\"\n       [class.visible]=\"show && inView\"\n       *ngIf=\"cache\"\n       (load)=\"onLoad()\">\n</section>\n"
+module.exports = "<reader [path]=\"path\" [refresh]=\"refresh\" (ok)=\"onOk()\" (fail)=\"open()\"></reader>\n<header class=\"titlebar\" (dblclick)=\"zoom()\" (contextmenu)=\"onContextMenu($event, titleBar)\" #titleBar>{{getTitle()}}</header>\n<!--<section class=\"cover\" *ngIf=\"cover.show\" #c>-->\n  <!--<img-->\n    <!--*ngIf=\"cover.dataUrl\"-->\n    <!--[src]=\"cover.dataUrl\"-->\n    <!--[height]=\"c.offsetHeight*cover.scale/100\"-->\n    <!--[width]=\"c.offsetWidth*cover.scale/100\"-->\n  <!--&gt;-->\n<!--</section>-->\n"
 
 /***/ }),
 
-/***/ 180:
+/***/ 156:
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"pages\" #pages>\n  <viewer #page *ngFor=\"let p of book?.meta?.Pages; let i = index;\"\n          [style.marginTop.px]=\"config.whenContinuousScroll(config.ui.view.before-(i!==0?config.ui.view.intervalCorrection:0))\"\n          [style.marginBottom.px]=\"config.whenContinuousScroll(config.ui.view.after)\"\n          [config]=\"config\"\n          [hidden]=\"config.isContinuousScroll()? false: (i+1!==book.current)\"\n          [id]=\"'page-'+(i+1)\"\n          [class]=\"i\"\n          [page]=\"i+1\"\n          [cache]=\"inCacheRange(i+1)\"\n          [path]=\"book.getPageFilePath(p.Locator)\"\n          [meta]=\"p\"\n          (attention)=\"update(i+1)\"\n          (leave)=\"update(i+1, true)\">\n  </viewer>\n</section>\n<section class=\"layer\">\n  <section class=\"panel progress\" *ngIf=\"book?.total\">\n    {{book?.current}}<span style=\"opacity: 0.75;margin: 0 2px 0 4px;\">/</span>{{book?.total}}\n  </section>\n</section>\n"
+
+/***/ }),
+
+/***/ 157:
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"viewer\" #viewer\n         [class.overflow]=\"isOverflow()\"\n         [class.singlePage]=\"config.isSinglePage()\"\n         [class.continuousScroll]=\"config.isContinuousScroll()\">\n         <!--[style.height.px]=\"config.whenContinuousScroll(height)\">-->\n  <div class=\"loading\" [class.hide]=\"show\">\n    <div class=\"words\">\n      <div class=\"page\">Page {{page}}</div>\n      <!--<div class=\"status\">{{meta.Type}}: {{meta.Width}}-{{meta.Height}}</div>-->\n      <div class=\"status\">loading...</div>\n    </div>\n  </div>\n  <img #img [src]=\"path\"\n       *ngIf=\"cache\"\n       [style.marginTop.px]=\"config.whenSinglePageNotFullHeight(config.ui.view.before)\"\n       [style.marginBottom.px]=\"config.whenSinglePageNotFullHeight(config.ui.view.after)\"\n       [style.maxHeight.px]=\"config.whenNotFullWidth(height)\"\n       [style.minWidth.%]=\"config.whenFullWidth(100)\"\n       [style.width.%]=\"config.whenFullWidth(100)\"\n       [hidden]=\"!show\"\n       (load)=\"onLoad(img)\">\n  <!--[class.visible]=\"show && config.isContinuousScroll()?inView:true\"-->\n</section>\n"
+
+/***/ }),
+
+/***/ 182:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(75);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
@@ -124,7 +124,9 @@ module.exports = __webpack_require__(75);
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return MenuItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Menu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return MenuItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return alwaysOnTopItem; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppMenu; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -136,7 +138,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 const electron = window['require']('electron');
 const { app, Menu, MenuItem } = electron.remote;
 const process = window['process'];
-
+const alwaysOnTopItem = {
+    label: 'Always on Top',
+    type: 'checkbox',
+    checked: false,
+    click(item, win) {
+        win.setAlwaysOnTop(!win.isAlwaysOnTop());
+        item.checked = win.isAlwaysOnTop();
+    }
+};
 const getTemplate = function () {
     const template = [
         {
@@ -145,11 +155,7 @@ const getTemplate = function () {
         },
         {
             label: 'View',
-            submenu: [
-                {
-                    role: 'togglefullscreen'
-                }
-            ]
+            submenu: []
         },
         {
             role: 'window',
@@ -220,38 +226,36 @@ const getTemplate = function () {
                 accelerator: 'CmdOrCtrl+M',
                 role: 'minimize'
             }, {
+                role: 'togglefullscreen'
+            }, {
+                type: 'separator'
+            }, {
                 label: 'Zoom',
                 accelerator: 'Ctrl+Cmd+=',
                 role: 'zoom'
             }, {
-                label: 'Always On Top',
-                type: 'checkbox',
-                checked: false,
-                click: function (item, win) {
-                    win.setAlwaysOnTop(!win.isAlwaysOnTop());
-                    item.checked = win.isAlwaysOnTop();
+                label: 'Center',
+                click(item, win) {
+                    win.center();
                 }
-            }, {
+            }, alwaysOnTopItem, {
                 type: 'separator'
             }, {
-                label: 'Developer Tools',
-                accelerator: 'Cmd+Alt+I',
-                click: function (item, win) {
-                    if (!win.webContents.isDevToolsOpened()) {
-                        win.webContents.openDevTools();
-                    }
-                }
-            }, {
-                type: 'separator'
-            },
-            {
                 label: 'Bring All to Front',
                 role: 'front'
             }
         ];
+        if (1) {
+            template[3].submenu.push({
+                label: 'Developer Tools',
+                accelerator: 'Cmd+Alt+I',
+                role: 'toggledevtools'
+            });
+        }
     }
     return Menu.buildFromTemplate(template);
 };
+
 let AppMenu = class AppMenu {
     constructor() {
         this.current = getTemplate();
@@ -284,11 +288,74 @@ AppMenu = __decorate([
 
 /***/ }),
 
-/***/ 49:
+/***/ 30:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-const qs = __webpack_require__(152);
+class AppStorageValue {
+    constructor(k, driver) {
+        this.k = k;
+        this.driver = driver;
+        this.cached = false;
+        this._onChange = [];
+    }
+    get(defaultValue) {
+        if (!this.cached) {
+            this.v = this.driver.read(this.k, defaultValue);
+            this.cached = true;
+        }
+        return this.v;
+    }
+    set(v) {
+        const old = this.v;
+        this.v = v;
+        this.cached = true;
+        this.driver.write(this.k, v);
+        if (old !== v) {
+            this._onChange.forEach(cb => cb(v, old));
+        }
+    }
+    onChange(cb) {
+        this._onChange.push(cb);
+    }
+    clearCache() {
+        this.v = null;
+        this.cached = false;
+    }
+}
+/* unused harmony export AppStorageValue */
+
+class AppStorage {
+    constructor() {
+        this.m = new Map();
+        this.s = window.localStorage;
+    }
+    write(key, value) {
+        return this.s.setItem(key, JSON.stringify(value));
+    }
+    read(key, defaultValue = null) {
+        const v = this.s.getItem(key);
+        return JSON.parse(v !== null ? v : typeof defaultValue === 'string' ? defaultValue : JSON.stringify(defaultValue));
+    }
+    get(key) {
+        const exists = this.m.has(key);
+        if (!exists) {
+            this.m.set(key, new AppStorageValue(key, this));
+        }
+        return this.m.get(key);
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = AppStorage;
+
+//# sourceMappingURL=storage.js.map
+
+/***/ }),
+
+/***/ 50:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const qs = __webpack_require__(154);
 const { ipcRenderer } = window['require']('electron');
 class Args {
     constructor() {
@@ -324,92 +391,10 @@ ipcRenderer.on('port', (event, message) => {
 
 /***/ }),
 
-/***/ 50:
+/***/ 51:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-class ClassNames {
-    constructor() {
-        this.names = [];
-    }
-    get() {
-        return this.names;
-    }
-    clear() {
-        this.names = [];
-    }
-    add(c) {
-        this.names.push(c);
-    }
-}
-class IntervalTimer {
-    constructor() {
-    }
-    run(callback, delay = 100) {
-        const now = Date.now();
-        if ((now - this.lastRunTime) > delay) {
-            this.lastRunTime = now;
-            callback();
-            this.timer = null;
-        }
-        else {
-            if (this.timer) {
-                clearTimeout(this.timer);
-                this.timer = null;
-            }
-            this.timer = setTimeout(() => {
-                this.lastRunTime = now;
-                callback();
-            }, delay - (now - this.lastRunTime));
-        }
-    }
-    whenFree(callback) {
-        if (!this.timer) {
-            callback();
-        }
-    }
-}
-/* unused harmony export IntervalTimer */
-
-class EnterLeaveRecorder {
-    constructor(cb, opt) {
-        this.stack = [];
-        this.io = new IntersectionObserver(cb, opt);
-    }
-    top() {
-        return this.stack[this.stack.length - 1];
-    }
-    // intersect(...ids: string[]): boolean {
-    //   return ids.map(id => this.stack.includes(id)).some(b => b);
-    // }
-    toggle(id) {
-        const index = this.stack.indexOf(id);
-        if (index < 0) {
-            this.stack.push(id);
-        }
-        else {
-            this.stack.splice(index, 1);
-        }
-        return this.top();
-    }
-}
-/* unused harmony export EnterLeaveRecorder */
-
-class Dismiss {
-    constructor(times) {
-        this.times = times;
-    }
-    run(cb) {
-        if (this.times > 0) {
-            this.times--;
-        }
-        else {
-            cb();
-        }
-    }
-}
-/* unused harmony export Dismiss */
-
 class RustyLock {
     constructor() {
         this.finishTime = 0;
@@ -423,7 +408,7 @@ class RustyLock {
         }
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["b"] = RustyLock;
+/* harmony export (immutable) */ __webpack_exports__["c"] = RustyLock;
 
 class Checker {
     constructor(freq) {
@@ -517,13 +502,35 @@ class Change {
         return false;
     }
 }
-/* harmony export (immutable) */ __webpack_exports__["c"] = Change;
+/* unused harmony export Change */
+
+class LRU {
+    constructor(q, size, cmp) {
+        this.q = q;
+        this.size = size;
+        this.cmp = cmp;
+        this.checkSize();
+    }
+    checkSize() {
+        this.q.splice(this.size);
+    }
+    add(v) {
+        this.q = this.q.filter(item => !this.cmp(v, item));
+        this.q.unshift(v);
+        this.checkSize();
+        return this.get();
+    }
+    get() {
+        return this.q;
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["b"] = LRU;
 
 //# sourceMappingURL=util.js.map
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -532,17 +539,33 @@ const pt = v => console.log(cnt++, v);
 class ConfigItem {
     constructor(v) {
         this.listeners = [];
+        this._lock = false;
         this.value = v;
     }
     set(v) {
+        if (this._lock)
+            return false;
         const old = this.value;
-        this.value = v;
-        if (old !== this.value) {
+        if (old !== v) {
+            this.value = v;
             this.listeners.forEach(cb => cb(this.value, old));
         }
+        return true;
     }
     get() {
         return this.value;
+    }
+    is(v) {
+        return this.value === v;
+    }
+    lock() {
+        this._lock = true;
+    }
+    unlock() {
+        this._lock = false;
+    }
+    clear() {
+        this.listeners = [];
     }
     change(cb) {
         return this.listeners.push(cb);
@@ -556,29 +579,78 @@ class ConfigItem {
 }
 /* unused harmony export ConfigItem */
 
+class ConfigRangedItem extends ConfigItem {
+    constructor(v, min, max) {
+        super(v);
+        [this.min, this.max] = [min, max];
+    }
+    setRange(min, max) {
+        if (min >= max)
+            console.error('min should be smaller than max:', min, max);
+        [this.min, this.max] = [min, max];
+        if (this.value < this.min)
+            this.set(this.min);
+        else if (this.value > this.max)
+            this.set(this.max);
+    }
+    inRange(v) {
+        return this.min <= v && v <= this.max;
+    }
+    set(v) {
+        if (this.inRange(v))
+            return super.set(v);
+        else
+            return false;
+    }
+}
+/* unused harmony export ConfigRangedItem */
+
 class Config {
     constructor() {
+        this.recentlyEnjoyedLen = 10;
+        this.natureScroll = true;
         // appearance
         this.ui = {
             view: {
-                continuousScroll: {
-                    before: 5,
-                    interval: 0,
-                    after: 0,
-                },
-                singlePage: {
-                    before: 5,
-                    after: 5
-                }
+                before: 50,
+                after: 50,
+                intervalCorrection: 50,
+                zoomUnit: 5
             }
         };
+        this.pinch = new ConfigItem(1);
+        // mode
+        this.mode = new ConfigItem(Config.MODE_DEFAULT);
         // scale
-        this.scale = new ConfigItem(Config.SCALE_DEFAULT);
+        this.defaultScale = 150;
+        this.scale = new ConfigRangedItem(this.defaultScale, 100, 100000);
+        this._onSetScaleConstraint = [];
         // view
         this.view = new ConfigItem(Config.VIEW_SINGLE_PAGE);
     }
+    clear() {
+        this.pinch.clear();
+        this.mode.clear();
+        this.mode.clear();
+        this.view.clear();
+    }
+    onSetScaleConstraint(cb) {
+        this._onSetScaleConstraint.push(cb);
+    }
+    setScaleConstraint(book, viewers) {
+        if (book.meta.Pages.length && viewers.length) {
+            const vw = viewers.map(v => v.elm.offsetWidth).reduce((a, b) => a > b ? a : b);
+            const vh = viewers.map(v => v.elm.offsetHeight).reduce((a, b) => a > b ? a : b);
+            const imgMinW = book.meta.Pages.map(pm => pm.Width).reduce((a, b) => a < b ? a : b);
+            const imgMinH = book.meta.Pages.map(pm => pm.Height).reduce((a, b) => a < b ? a : b);
+            const MIN_HEIGHT_PROPORTION = 65;
+            const MIN_WIDTH_PROPORTION = 30;
+            this.scale.setRange(Math.max(MIN_HEIGHT_PROPORTION * vh / imgMinH, MIN_WIDTH_PROPORTION * vw / imgMinW), 100 * vw / imgMinW);
+            this._onSetScaleConstraint.forEach(cb => cb(this.scale.min, this.scale.max));
+        }
+    }
     isFullWidth() {
-        return this.scale.get() === Config.SCALE_FULL_WIDTH;
+        return this.mode.is(Config.MODE_FULL_WIDTH);
     }
     whenFullWidth(v) {
         if (this.isFullWidth()) {
@@ -591,17 +663,7 @@ class Config {
         }
     }
     isFullHeight() {
-        return this.scale.get() === Config.SCALE_FULL_HEIGHT;
-    }
-    whenFullHeight(v) {
-        if (this.isFullHeight()) {
-            return v;
-        }
-    }
-    whenNotFullHeight(v) {
-        if (!this.isFullHeight()) {
-            return v;
-        }
+        return this.mode.is(Config.MODE_FULL_HEIGHT);
     }
     isContinuousScroll() {
         return this.view.get() === Config.VIEW_CONTINUOUS_SCROLL;
@@ -614,18 +676,18 @@ class Config {
     isSinglePage() {
         return this.view.get() === Config.VIEW_SINGLE_PAGE;
     }
-    whenSinglePage(v) {
-        if (this.isSinglePage()) {
+    // mixed
+    whenSinglePageNotFullHeight(v) {
+        if (this.isSinglePage() && !this.isFullHeight())
             return v;
-        }
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Config;
 
-Config.SCALE_DEFAULT = 150;
-Config.SCALE_FULL_HEIGHT = 100;
-Config.SCALE_FULL_WIDTH = Infinity;
-Config.SCALE_ALL = [Config.SCALE_FULL_HEIGHT, Config.SCALE_DEFAULT, Config.SCALE_FULL_WIDTH];
+Config.MODE_DEFAULT = 0;
+Config.MODE_FULL_HEIGHT = 1;
+Config.MODE_FULL_WIDTH = 2;
+Config.MODE_ALL = [Config.MODE_FULL_HEIGHT, Config.MODE_DEFAULT, Config.MODE_FULL_WIDTH];
 Config.VIEW_CONTINUOUS_SCROLL = 0;
 Config.VIEW_SINGLE_PAGE = 1;
 Config.VIEW_ALL = [Config.VIEW_CONTINUOUS_SCROLL, Config.VIEW_SINGLE_PAGE];
@@ -633,14 +695,14 @@ Config.VIEW_ALL = [Config.VIEW_CONTINUOUS_SCROLL, Config.VIEW_SINGLE_PAGE];
 
 /***/ }),
 
-/***/ 52:
+/***/ 53:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reader_meta__ = __webpack_require__(87);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reader_config__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reader_meta__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reader_config__ = __webpack_require__(52);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViewerComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -663,9 +725,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 
 
 
-const getWindowSize = () => {
-    return [window.innerWidth, window.innerHeight];
-};
 let ViewerComponent = class ViewerComponent {
     constructor(elm, zone) {
         this.zone = zone;
@@ -674,16 +733,18 @@ let ViewerComponent = class ViewerComponent {
         this.enter = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
         this.leave = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
         this.attention = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
-        this.c = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["c" /* Change */]();
         this.elm = elm.nativeElement;
         this.elm.addEventListener('ready', e => console.log(e));
-        this.overflow = new Promise(resolve => this.resolveOverflow = resolve);
     }
     scrollTo() {
         this.elm.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
         });
+    }
+    onLoad(img) {
+        this.show = true;
+        this.img = img;
     }
     ngOnInit() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -716,11 +777,8 @@ let ViewerComponent = class ViewerComponent {
             });
             io.observe(this.elm);
             this.setHeight();
-            this.config.scale.change(() => {
-                this.zone.run(() => {
-                    this.setHeight();
-                });
-            });
+            this.config.mode.change(() => this.zone.run(() => this.setHeight()));
+            this.config.scale.change(() => this.zone.run(() => this.setHeight()));
         });
     }
     onResize() {
@@ -728,27 +786,29 @@ let ViewerComponent = class ViewerComponent {
     }
     setHeight() {
         const pages = this.elm.parentElement;
+        if (!pages)
+            return;
         const p = this.meta;
-        const xScale = 100;
-        const yScale = this.config.scale.get();
-        const [w, h] = [xScale / 100 * pages.offsetWidth, yScale / 100 * pages.offsetHeight];
-        const scale = Math.min(1, w / p.Width, h / p.Height);
-        return this.height = p.Height * scale;
-    }
-    ngOnChanges(changes) {
-    }
-    checkOverflow() {
-        const h = this.elm.parentElement.offsetHeight;
-        const changed = this.c.changed(`${h}.${this.height}`);
-        if (changed && h) {
-            this.overflow = new Promise(r => r(h < this.height));
+        if (this.config.view.is(__WEBPACK_IMPORTED_MODULE_3__reader_config__["a" /* Config */].VIEW_SINGLE_PAGE) && this.config.mode.is(__WEBPACK_IMPORTED_MODULE_3__reader_config__["a" /* Config */].MODE_FULL_HEIGHT)) {
+            this.height = pages.offsetHeight;
+        }
+        else {
+            this.height = p.Height * this.config.scale.get() / 100;
         }
     }
-    ngAfterContentChecked() {
-        this.checkOverflow();
+    isOverflow() {
+        if (!this.config.view.is(__WEBPACK_IMPORTED_MODULE_3__reader_config__["a" /* Config */].VIEW_SINGLE_PAGE))
+            return false;
+        else if (this.config.mode.is(__WEBPACK_IMPORTED_MODULE_3__reader_config__["a" /* Config */].MODE_FULL_HEIGHT))
+            return false;
+        else if (!this.img)
+            return false;
+        else
+            return this.img.height > this.elm.parentElement.offsetHeight;
     }
-    onLoad() {
-        this.show = true;
+    getPos() {
+        // const top = this.elm.getBoundingClientRect().top;
+        // console.log(this.elm.getBoundingClientRect());
     }
 };
 __decorate([
@@ -792,8 +852,8 @@ __decorate([
 ViewerComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
         selector: 'viewer',
-        template: __webpack_require__(155),
-        styles: [__webpack_require__(148)]
+        template: __webpack_require__(157),
+        styles: [__webpack_require__(150)]
     }),
     __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* ElementRef */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _d || Object])
 ], ViewerComponent);
@@ -803,7 +863,7 @@ var _a, _b, _c, _d;
 
 /***/ }),
 
-/***/ 74:
+/***/ 75:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -812,25 +872,25 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 74;
+webpackEmptyContext.id = 75;
 
 
 /***/ }),
 
-/***/ 75:
+/***/ 76:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment_prod__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(92);
 
 
 
 
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment_prod__["a" /* environment */].production) {
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
@@ -838,13 +898,15 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 82:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_args__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_args__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_menu__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_storage__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(11);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -866,45 +928,92 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 
 
 
+
+
 const electron = window['require']('electron');
 const { webFrame } = electron;
 const { dialog, getCurrentWindow } = electron.remote;
+const ses = getCurrentWindow().webContents.session;
 let AppComponent = class AppComponent {
-    constructor(zone, m) {
+    constructor(zone, title, m, s) {
         this.zone = zone;
+        this.title = title;
         this.m = m;
+        this.s = s;
         this.refresh = 0;
-    }
-    whenOpen() {
+        this.win = getCurrentWindow();
+        const menu = new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["b" /* Menu */]();
+        const aotItem = new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */](__WEBPACK_IMPORTED_MODULE_2__lib_menu__["d" /* alwaysOnTopItem */]);
+        menu.append(aotItem);
+        menu.refreshAOTChecked = () => aotItem.checked = this.win.isAlwaysOnTop();
+        this.titleBarContextMenu = menu;
+        webFrame.setVisualZoomLevelLimits(1, 1);
+        webFrame.setLayoutZoomLevelLimits(0, 0);
+        ses.on('will-download', (event, item, webContents) => {
+            event.preventDefault();
+        });
         this.m.reset();
+        const re = this.s.get('menu.recentlyEnjoyed');
+        re.onChange(() => this.setFileMenu(re));
+        this.setFileMenu(re);
+    }
+    setFileMenu(re) {
+        // file menu
         const fm = this.m.file();
-        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["b" /* MenuItem */]({
+        fm.clear();
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({
             label: 'Open...',
             accelerator: 'CmdOrCtrl+O',
-            enable: true,
+            enabled: true,
             click: () => this.zone.run(() => this.open())
         }));
-        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["b" /* MenuItem */]({
-            label: 'Save as...',
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({
+            label: 'Open URL...',
+            accelerator: 'CmdOrCtrl+U',
+            enabled: false,
+            click: () => this.zone.run(() => this.open())
+        }));
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({
+            label: 'Save As...',
+            enabled: false,
             accelerator: 'CmdOrCtrl+Shift+S',
             click() {
                 console.log('SAVE AS.');
             }
         }));
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({ type: 'separator' }));
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({ type: 'separator' }));
+        fm.append(new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({ label: 'Recently Enjoyed', enabled: false }));
+        re.get([]).map((item) => new __WEBPACK_IMPORTED_MODULE_2__lib_menu__["c" /* MenuItem */]({
+            label: item.key,
+            click: () => this.zone.run(() => this.path = item.value)
+        })).map(item => fm.append(item));
         this.m.set();
+    }
+    ;
+    whenOpen() {
+        return __awaiter(this, void 0, void 0, function* () {
+            webFrame.clearCache();
+            const ses = getCurrentWindow().webContents.session;
+            yield new Promise(r => ses.clearCache(r));
+        });
     }
     ngOnInit() {
         return __awaiter(this, void 0, void 0, function* () {
-            webFrame.setVisualZoomLevelLimits(1, 1);
-            webFrame.setLayoutZoomLevelLimits(1, 1);
+            const getSize = () => new Promise(resolve => ses.getCacheSize(size => resolve(size)));
+            // setInterval(async () => {
+            //   const s = await getSize();
+            //   console.log(s / 1024 / 1024, 'MB');
+            // }, 1000);
+            // console.log(s / 1024 / 1024, 'MB');
             yield __WEBPACK_IMPORTED_MODULE_1__lib_args__["a" /* default */].wait();
             const path = __WEBPACK_IMPORTED_MODULE_1__lib_args__["a" /* default */].path;
             if (!path) {
-                this.open();
+                yield this.open();
             }
             else {
                 this.path = path;
-                this.whenOpen();
+                yield this.whenOpen();
             }
         });
     }
@@ -912,39 +1021,80 @@ let AppComponent = class AppComponent {
         getCurrentWindow().show();
     }
     open() {
-        this.whenOpen();
-        this.path = dialog.showOpenDialog({ properties: ['openFile', 'openDirectory'] }).pop();
-        this.refresh++;
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                this.path = dialog.showOpenDialog({ properties: ['openFile', 'openDirectory'] }).pop();
+                yield this.whenOpen();
+            }
+            catch (e) {
+            }
+            // this.refresh++;
+        });
+    }
+    getTitle() {
+        return this.title.getTitle();
+    }
+    onContextMenu(e, titleBar) {
+        const m = this.titleBarContextMenu;
+        m.refreshAOTChecked();
+        m.popup(this.win, { x: e.x, y: titleBar.offsetHeight / 2 });
+    }
+    zoom() {
+        const w = this.win;
+        return w.isMaximized() ? w.unmaximize() : w.maximize();
+    }
+    onDropBefore() {
+        return false;
+    }
+    onDrop(e) {
+        e.preventDefault();
+        this.path = e.dataTransfer.files[0].path;
     }
 };
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:dragover', ['$event']),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:dragleave', ['$event']),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:dragend', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppComponent.prototype, "onDropBefore", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:drop', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppComponent.prototype, "onDrop", null);
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
         selector: 'app-root',
-        template: __webpack_require__(153),
-        styles: [__webpack_require__(144)]
+        template: __webpack_require__(155),
+        styles: [__webpack_require__(146)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__lib_menu__["a" /* AppMenu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__lib_menu__["a" /* AppMenu */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["d" /* Title */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["d" /* Title */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__lib_menu__["a" /* AppMenu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__lib_menu__["a" /* AppMenu */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__lib_storage__["a" /* AppStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__lib_storage__["a" /* AppStorage */]) === "function" && _d || Object])
 ], AppComponent);
 
-var _a, _b;
+var _a, _b, _c, _d;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 83:
+/***/ 84:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__viewer_viewer_component__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__trust_resource_url_pipe__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reader_reader_component__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_height_pipe__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__viewer_viewer_component__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__trust_resource_url_pipe__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__reader_reader_component__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_height_pipe__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_menu__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_storage__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__render_service__ = __webpack_require__(90);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -952,6 +1102,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -978,7 +1130,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_9__lib_menu__["a" /* AppMenu */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_9__lib_menu__["a" /* AppMenu */], __WEBPACK_IMPORTED_MODULE_10__lib_storage__["a" /* AppStorage */], __WEBPACK_IMPORTED_MODULE_11__render_service__["a" /* RenderService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -987,7 +1139,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1014,7 +1166,7 @@ const setTouchBar = function (args) {
 
 /***/ }),
 
-/***/ 85:
+/***/ 86:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1047,11 +1199,11 @@ PageHeightPipe = __decorate([
 
 /***/ }),
 
-/***/ 86:
+/***/ 87:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_args__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_args__ = __webpack_require__(50);
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -1127,14 +1279,17 @@ class Book {
     next(page) {
         return this.go((page || 0) + 1, !page);
     }
-    getPageFilePath(id) {
+    getPageFilePath(imgLocator) {
         const url = new URL(`http://localhost:${__WEBPACK_IMPORTED_MODULE_0__lib_args__["a" /* default */].port}/book/page`);
         url['searchParams'].append('locator', this.locator);
-        url['searchParams'].append('page', id);
+        url['searchParams'].append('page', imgLocator);
         return url.href;
     }
     onPage(callback) {
         this._onPage.push(callback);
+    }
+    getLastReadIndex() {
+        return this.meta.Pages.map(pm => pm.Locator).indexOf(this.meta.LastRead);
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = Book;
@@ -1143,7 +1298,7 @@ class Book {
 
 /***/ }),
 
-/***/ 87:
+/***/ 88:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1159,17 +1314,19 @@ class BookMeta {
 
 /***/ }),
 
-/***/ 88:
+/***/ 89:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__book__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewer_viewer_component__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_util__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__book__ = __webpack_require__(87);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__viewer_viewer_component__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__config__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_menu__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_app_lib_storage__ = __webpack_require__(30);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReaderComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1195,27 +1352,37 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 
 
 
+
+
 const fs = window['require']('fs');
-const { Menu, MenuItem } = window['require']('electron').remote;
+const { dialog, BrowserWindow, getCurrentWindow, Menu, MenuItem } = window['require']('electron').remote;
 let ReaderComponent = class ReaderComponent {
-    constructor(zone, m) {
+    constructor(zone, title, m, s, elm) {
         this.zone = zone;
+        this.title = title;
         this.m = m;
-        this.scale = 133;
+        this.s = s;
         this.ok = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
         this.fail = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* EventEmitter */]();
+        this.pageList = [];
+        this.elm = elm.nativeElement;
         this.config = new __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */]();
     }
     // todo: multi-viewer: cache and better loading
     onRightClick() {
     }
-    ngOnInit() {
-        return __awaiter(this, void 0, void 0, function* () {
-        });
+    update(page, leave) {
+        if (leave) {
+            this.pageList = this.pageList.filter(p => p !== page);
+        }
+        else {
+            this.pageList.push(page);
+        }
+        this.book.updateCurrent(this.pageList[this.pageList.length - 1]);
     }
     ngOnChanges(changes) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (changes.path && this.path || this.refresh) {
+            if (changes.path && this.path) {
                 this.book = new __WEBPACK_IMPORTED_MODULE_3__book__["a" /* Book */](this.path, this.config);
                 let e = yield this.book.init();
                 if (e) {
@@ -1223,23 +1390,54 @@ let ReaderComponent = class ReaderComponent {
                     return;
                 }
                 this.ok.emit();
+                this.title.setTitle(this.book.meta.Name);
                 this.viewers.changes.subscribe(() => {
                     this.book.bind(this.viewers.map(v => v));
                 });
-                const barScaleMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["a" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].SCALE_ALL);
+                this.config.clear();
+                setTimeout(() => this.config.setScaleConstraint(this.book, this.viewers), 0);
+                // turn to specific page
+                if (this.book.meta.LastRead) {
+                    const page = this.book.getLastReadIndex();
+                    const shouldTurn = dialog.showMessageBox(getCurrentWindow(), {
+                        type: 'question',
+                        message: `Turn to Page${page}`,
+                        detail: `You may opened the book via Page${page}, 'OK' to turn that page rather than Page1.`,
+                        buttons: ['Yes', 'Cancel'],
+                        cancelId: 1
+                    }) === 0;
+                    if (shouldTurn) {
+                        this.book.go(page);
+                    }
+                }
+                // scale and view
                 const barViewMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["a" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_ALL);
+                const barModeMap = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["a" /* ABMap */](__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].MODE_ALL);
                 const setView = i => {
                     this.zone.run(() => {
                         this.config.view.set(barViewMap.getB(i));
                     });
                 };
-                const setScale = i => {
+                const setMode = i => {
                     this.zone.run(() => {
-                        this.config.scale.set(barScaleMap.getB(i));
+                        this.config.mode.set(barModeMap.getB(i));
                     });
                 };
+                //pinch
+                this.config.pinch.change(v => {
+                    if (this.config.mode.is(__WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].MODE_DEFAULT)) {
+                        const to = this.config.scale.get() * ((v - 1) * 0.5 + 1);
+                        this.config.scale.set(to);
+                    }
+                });
                 // menu
+                const re = this.s.get('menu.recentlyEnjoyed');
+                re.set((new __WEBPACK_IMPORTED_MODULE_2__lib_util__["b" /* LRU */](re.get([]), this.config.recentlyEnjoyedLen, (a, b) => a.value === b.value)).add({
+                    key: this.book.meta.Name || this.book.meta.Locator,
+                    value: this.book.meta.Locator
+                }));
                 const vm = this.m.view();
+                vm.clear();
                 const append = (vm, ...itemsArr) => {
                     itemsArr.forEach(items => {
                         vm.append(new MenuItem({ type: 'separator' }));
@@ -1253,23 +1451,27 @@ let ReaderComponent = class ReaderComponent {
                     click: () => setView(i),
                     checked: barViewMap.getA(this.config.view.get()) === i,
                 }));
-                const scaleItems = ['Full Page', 'Default', 'Width FullFilled'].map((label, i) => new MenuItem({
+                // const zoomInItem = new MenuItem({
+                //   label: 'Zoom In',
+                //   accelerator: 'CmdOrCtrl+Plus',
+                //   click: () => this.zone.run(() => this.config.scale.set(this.config.scale.get() + this.config.ui.view.zoomUnit))
+                // });
+                // const zoomOutItem = new MenuItem({
+                //   label: 'Zoom Out',
+                //   accelerator: 'CmdOrCtrl+-',
+                //   click: () => this.zone.run(() => this.config.scale.set(this.config.scale.get() - this.config.ui.view.zoomUnit))
+                // });
+                const modeItems = ['Full Page', 'Default', 'Width FullFilled'].map((label, i) => new MenuItem({
                     label,
                     accelerator: `CmdOrCtrl+Alt+${i + 1}`,
                     type: 'radio',
-                    click: () => setScale(i),
-                    checked: barScaleMap.getA(this.config.scale.get()) === i,
-                })).concat([new MenuItem({
-                        label: 'Zoom In',
-                        accelerator: 'CmdOrCtrl+Plus'
-                    }), new MenuItem({
-                        label: 'Zoom Out',
-                        accelerator: 'CmdOrCtrl+-'
-                    })
-                ]);
-                const goItems = ['First Page', 'Previous Page', 'Next Page'].map((label, i) => new MenuItem({
+                    click: () => setMode(i),
+                    checked: barModeMap.getA(this.config.mode.get()) === i
+                }));
+                // .concat([zoomInItem, zoomOutItem]);
+                const goItems = ['First Page', 'Go to..', 'Previous Page', 'Next Page'].map((label, i) => new MenuItem({
                     label,
-                    accelerator: [null, 'Left', 'Right'][i],
+                    accelerator: [null, 'CmdOrCtrl+G', 'Left', 'Right'][i],
                     click: () => {
                         this.zone.run(() => {
                             switch (i) {
@@ -1277,20 +1479,36 @@ let ReaderComponent = class ReaderComponent {
                                     this.book.go(1);
                                     break;
                                 case 1:
-                                    this.book.prev();
+                                    const w = new BrowserWindow({
+                                        modal: true, parent: getCurrentWindow()
+                                    });
+                                    w.show();
                                     break;
                                 case 2:
+                                    this.book.prev();
+                                    break;
+                                case 3:
                                     this.book.next();
                                     break;
                             }
                         });
                     }
                 }));
-                append(vm, viewItems, scaleItems, goItems);
+                append(vm, viewItems, modeItems, goItems);
                 this.m.set();
+                // const setZoomItemEnabled = (min: number, max: number) => {
+                //   const unit = this.config.ui.view.zoomUnit;
+                //   const cur = this.config.scale.get();
+                //   const toMin = (100 - unit) / 100 * cur;
+                //   const toMax = (100 + unit) / 100 * cur;
+                //   const threshold = 5;
+                //   // [zoomOutItem.enabled, zoomInItem.enabled] = [toMin - min <= threshold, max - toMax <= threshold];
+                // };
+                // this.config.scale.change(() => setZoomItemEnabled(this.config.scale.min, this.config.scale.max));
+                // this.config.onSetScaleConstraint((min, max) => setZoomItemEnabled(min, max));
                 // touchBar
                 const getProgressStr = (current = this.book.current) => current + '/' + this.book.total;
-                const lock = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["b" /* RustyLock */]();
+                const lock = new __WEBPACK_IMPORTED_MODULE_2__lib_util__["c" /* RustyLock */]();
                 const slider = new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["a" /* TouchBarSlider */]({
                     label: getProgressStr(),
                     value: this.book.current,
@@ -1308,16 +1526,16 @@ let ReaderComponent = class ReaderComponent {
                         { label: 'Single' },
                     ],
                     selectedIndex: barViewMap.getA(this.config.view.get()),
-                    change: i => setView(i)
+                    change: setView
                 });
-                const scaleCtrl = new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["b" /* TouchBarSegmentedControl */]({
+                const modeCtrl = new __WEBPACK_IMPORTED_MODULE_1__lib_touchbar__["b" /* TouchBarSegmentedControl */]({
                     segments: [
                         { label: 'Page' },
                         { label: 'Default' },
                         { label: 'Width' },
                     ],
-                    selectedIndex: barScaleMap.getA(this.config.scale.get()),
-                    change: i => setScale(i)
+                    selectedIndex: barModeMap.getA(this.config.mode.get()),
+                    change: setMode
                 });
                 this.book.onPage((current) => {
                     lock.run(() => {
@@ -1335,33 +1553,30 @@ let ReaderComponent = class ReaderComponent {
                     //   mode: 'free',
                     //   selectedStyle: 'outline',
                     // }),
-                    scaleCtrl,
+                    modeCtrl,
                 ]);
+                // update menu and touchBar
                 this.config.view.change(n => {
                     const index = __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_ALL.indexOf(n);
                     viewItems.filter((item, i) => i === index).forEach(item => item.checked = true);
                     viewCtrl.selectedIndex = index;
-                    // hack scale
+                    const viewer = this.viewers.filter((v, i) => i + 1 === this.book.current)[0];
+                    viewer.getPos();
+                    // hack view change
                     if (n === __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].VIEW_CONTINUOUS_SCROLL) {
-                        const viewer = this.viewers.filter((v, i) => i + 1 === this.book.current)[0];
                         setTimeout(() => {
                             viewer.scrollTo();
                         }, 0);
                     }
                 });
-                this.config.scale.change(n => {
-                    const index = __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].SCALE_ALL.indexOf(n);
-                    scaleItems.filter((item, i) => i === index).forEach(item => item.checked = true);
+                this.config.mode.change(n => {
+                    const index = __WEBPACK_IMPORTED_MODULE_5__config__["a" /* Config */].MODE_ALL.indexOf(n);
+                    modeItems.filter((item, i) => i === index).forEach(item => item.checked = true);
+                    modeCtrl.selectedIndex = index;
                 });
             }
         });
     }
-    zoom(percent) {
-        this.scale += percent;
-        console.log(this.scale);
-    }
-    // @HostListener('window:keydown.arrowUp', ['$event'])
-    // @HostListener('window:keydown.arrowLeft', ['$event'])
     prev() {
         if (this.book) {
             this.zone.run(() => {
@@ -1370,8 +1585,6 @@ let ReaderComponent = class ReaderComponent {
         }
     }
     ;
-    // @HostListener('window:keydown.arrowDown', ['$event'])
-    // @HostListener('window:keydown.arrowRight', ['$event'])
     next() {
         if (this.book) {
             this.zone.run(() => {
@@ -1382,6 +1595,7 @@ let ReaderComponent = class ReaderComponent {
     ;
     onResize() {
         console.warn('RESIZED!');
+        this.config.setScaleConstraint(this.book, this.viewers);
     }
     inCacheRange(page) {
         // let distance = 1e10;
@@ -1401,6 +1615,15 @@ let ReaderComponent = class ReaderComponent {
     }
     onContextMenu() {
         this.book.prev();
+    }
+    onWheel(e) {
+        return __awaiter(this, void 0, void 0, function* () {
+            e.preventDefault();
+            if (e.ctrlKey)
+                this.config.pinch.set(Math.exp(-e.deltaY / 100));
+            else
+                this.elm.firstElementChild.scrollTop += e.deltaY * (this.config.natureScroll ? 1 : -1);
+        });
     }
 };
 __decorate([
@@ -1459,26 +1682,69 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], ReaderComponent.prototype, "onContextMenu", null);
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* HostListener */])('window:mousewheel', ['$event']),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], ReaderComponent.prototype, "onWheel", null);
 ReaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
         selector: 'reader',
-        template: __webpack_require__(154),
-        styles: [__webpack_require__(145), __webpack_require__(147), __webpack_require__(146)],
+        template: __webpack_require__(156),
+        styles: [__webpack_require__(147), __webpack_require__(149), __webpack_require__(148)],
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__lib_menu__["a" /* AppMenu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__lib_menu__["a" /* AppMenu */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* NgZone */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__["d" /* Title */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__angular_platform_browser__["d" /* Title */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__lib_menu__["a" /* AppMenu */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__lib_menu__["a" /* AppMenu */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8_app_lib_storage__["a" /* AppStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8_app_lib_storage__["a" /* AppStorage */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* ElementRef */]) === "function" && _f || Object])
 ], ReaderComponent);
 
-var _a, _b, _c;
+var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=reader.component.js.map
 
 /***/ }),
 
-/***/ 89:
+/***/ 90:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(16);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RenderService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+const { getCurrentWindow } = window['require']('electron').remote;
+let RenderService = class RenderService {
+    constructor() {
+        this.win = getCurrentWindow();
+    }
+    stop() {
+        this.win.webContents.stopPainting();
+    }
+    start() {
+        this.win.webContents.startPainting();
+    }
+};
+RenderService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], RenderService);
+
+//# sourceMappingURL=render.service.js.map
+
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(11);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrustResourceUrlPipe; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1511,18 +1777,23 @@ var _a;
 
 /***/ }),
 
-/***/ 90:
+/***/ 92:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `.angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 const environment = {
-    production: true
+    production: false
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = environment;
 
-//# sourceMappingURL=environment.prod.js.map
+//# sourceMappingURL=environment.js.map
 
 /***/ })
 
-},[180]);
+},[182]);
 //# sourceMappingURL=main.bundle.js.map

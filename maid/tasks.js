@@ -31,7 +31,7 @@ const loadX = async function (url, options) {
 };
 const saveBook = async function (task) {
     const saveImages = async function (task) {
-        const win = await loadX(task.url, {show: false, webPreferences: {webSecurity: false}});
+        const win = await loadX(task.url, {show: true, webPreferences: {webSecurity: false}});
         const progressNotifyKey = task.url;
         const e = await win.exec(fn('./script/saveImages', task.dest, task.total, progressNotifyKey));
         if (e) {
