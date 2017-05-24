@@ -58,7 +58,7 @@ function createWindow () {
   })
 }
 
-// app.commandLine.appendSwitch('--disable-http-cache')
+app.commandLine.appendSwitch('--disable-http-cache')
 // app.commandLine.appendSwitch('--disable-pinch')
 app.on('certificate-error',
   (event, webContents, url, error, certificate, callback) => {
