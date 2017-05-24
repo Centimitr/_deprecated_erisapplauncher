@@ -1,7 +1,7 @@
 {
   "name": "Eris",
   "version": "0.2.1",
-  "description": "A simple and clean manga, gallery viewer for macOS.",
+  "description": "best manga reader, comic viewer for macOS.",
   "main": "app.js",
   "scripts": {
     "start": "electron .",
@@ -17,7 +17,7 @@
   "build": {
     "appId": "com.devbycm.eris",
     "productName": "Eris",
-    "buildVersion": "115",
+    "buildVersion": "180",
     "mac": {
       "category": "your.app.category.type",
       "target": "dmg"

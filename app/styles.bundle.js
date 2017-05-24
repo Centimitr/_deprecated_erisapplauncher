@@ -1,78 +1,21 @@
 webpackJsonp([2,4],{
 
-/***/ 14:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function() {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		var result = [];
-		for(var i = 0; i < this.length; i++) {
-			var item = this[i];
-			if(item[2]) {
-				result.push("@media " + item[2] + "{" + item[1] + "}");
-			} else {
-				result.push(item[1]);
-			}
-		}
-		return result.join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-
-/***/ }),
-
-/***/ 145:
+/***/ 149:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(14)();
+exports = module.exports = __webpack_require__(9)();
 // imports
 
 
 // module
-exports.push([module.i, "* {\n  border: 0;\n  padding: 0;\n  margin: 0;\n  outline: none;\n  box-sizing: border-box;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-user-drag: none;\n  font-family: \"PingFang SC\", sans-serif;\n  cursor: default;\n}\n", ""]);
+exports.push([module.i, "* {\n  border: 0;\n  padding: 0;\n  margin: 0;\n  outline: none;\n  box-sizing: border-box;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-user-drag: none;\n  font-family: \"PingFang SC\", sans-serif;\n  cursor: default;\n}\n\nbody {\n  -webkit-transition: 375ms;\n  transition: 375ms;\n}\n\n/*body.bg-tran-d-l {*/\n  /*background-color: #dedede;*/\n  /*animation: bg-tran 375ms;*/\n/*}*/\n/**/\n/*@keyframes bg-tran {*/\n  /*0% {*/\n    /*opacity: 0;*/\n  /*}*/\n  /*62% {*/\n    /*opacity: 1;*/\n  /*}*/\n  /*100% {*/\n    /*opacity: 0*/\n  /*}*/\n/*}*/\n\ncanvas {\n  /*animation: canvas-enter 75ms ease-in;*/\n}\n\n@-webkit-keyframes canvas-enter {\n  from {\n    opacity: .8\n  }\n  to {\n    opacity: 1\n  }\n}\n\n@keyframes canvas-enter {\n  from {\n    opacity: .8\n  }\n  to {\n    opacity: 1\n  }\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 180:
+/***/ 188:
 /***/ (function(module, exports) {
 
 /*
@@ -325,24 +268,24 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 184:
+/***/ 192:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(78);
+module.exports = __webpack_require__(80);
 
 
 /***/ }),
 
-/***/ 78:
+/***/ 80:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(145);
+var content = __webpack_require__(149);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(180)(content, {});
+var update = __webpack_require__(188)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -358,7 +301,64 @@ if(false) {
 	module.hot.dispose(function() { update(); });
 }
 
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function() {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		var result = [];
+		for(var i = 0; i < this.length; i++) {
+			var item = this[i];
+			if(item[2]) {
+				result.push("@media " + item[2] + "{" + item[1] + "}");
+			} else {
+				result.push(item[1]);
+			}
+		}
+		return result.join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+
 /***/ })
 
-},[184]);
+},[192]);
 //# sourceMappingURL=styles.bundle.js.map

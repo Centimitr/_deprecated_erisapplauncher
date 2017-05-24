@@ -10,8 +10,8 @@ const time = function (word, cb) {
 const modify = function (filename, from, to) {
     return fs.writeFileSync(filename, fs.readFileSync(filename).toString().replace(from, to));
 };
-const DEV = `main.loadURL('http://localhost:4200');`;
-const DEPLOY = `main.loadURL(url.format({pathname: path.join(__dirname, 'app', 'index.html'), protocol: 'file:', slashes: true}));`;
+const DEV = `main.loadURL('http://localhost:4200')`;
+const DEPLOY = `main.loadURL(url.format({pathname: path.join(__dirname, 'app', 'index.html'), protocol: 'file:', slashes: true}))`;
 
 const OMIT_BUILD = false;
 time('Total', () => {
