@@ -2,4 +2,4 @@ node_modules
 docs
 dist
 build
-.idea/
+.idea
