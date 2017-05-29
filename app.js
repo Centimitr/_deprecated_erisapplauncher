@@ -2,10 +2,13 @@ const {server} = require('./x')
 const gopher = require('./gopher')
 gopher.start()
 
-const {app, Menu, BrowserWindow} = require('electron')
+const {app, Menu, BrowserWindow, dialog} = require('electron')
 const path = require('path')
 const url = require('url')
 
+app.commandLine.appendSwitch('disable-http-cache')
+app.commandLine.appendSwitch('no-proxy-server')
+app.commandLine.appendSwitch('ignore-certificate-errors')
 let associatePath
 
 let main
@@ -26,16 +29,18 @@ function createWindow () {
     show:            false,
     autoHideMenuBar: true,
     webPreferences:  {
-      webSecurity:  false,
-      scrollBounce: false,
+      webSecurity:          false,
+      scrollBounce:         false,
+      experimentalFeatures: true,
+      plugins:              false,
     },
   })
   // Menu.setApplicationMenu(Menu.buildFromTemplate([]))
 
-  main.webContents.on('dom-ready', () => {
-    main.webContents.send('path', associatePath)
-    main.webContents.send('port', gopher.port)
-  })
+  // main.webContents.on('dom-ready', () => {
+  //   main.webContents.send('path', associatePath)
+  //   main.webContents.send('port', gopher.port)
+  // })
   // main.webContents.openDevTools();
   gopher.onStart(port => {
     main.webContents.send('port', port)
@@ -52,36 +57,30 @@ function createWindow () {
   //     slashes: true
   // }));
   //
-
+  associatePath = dialog.showOpenDialog({
+    properties: ['openFile', 'openDirectory', 'showHiddenFiles'],
+    filters:    [
+      {name: 'Images', extensions: ['webp', 'jpg', 'png', 'gif', 'jpeg']},
+      {name: 'Manga', extensions: ['eris']},
+      {name: 'Archive', extensions: ['rar', 'zip']},
+    ],
+  }).pop()
+  main.webContents.send('path', associatePath)
+  main.webContents.send('port', gopher.port)
   main.on('closed', function () {
     main = null
   })
 }
 
-app.commandLine.appendSwitch('--disable-http-cache')
-// app.commandLine.appendSwitch('--disable-pinch')
-app.on('certificate-error',
-  (event, webContents, url, error, certificate, callback) => {
-    event.preventDefault()
-    callback(true)
-  })
 app.on('open-file', (e, p) => {
   associatePath = p
-  if (main) {
-    main.webContents.send('path', p)
-  }
+  if (main) main.webContents.send('path', p)
 })
 app.on('ready', createWindow)
-app.on('window-all-closed', function () {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit()
 })
-app.on('activate', function () {
-  if (main === null) {
-    createWindow()
-  }
+app.on('activate', () => {
+  if (main === null) createWindow()
 })
-app.on('quit', function () {
-  gopher.kill()
-})
+app.on('quit', () => gopher.kill())
