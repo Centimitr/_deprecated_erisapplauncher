@@ -17,7 +17,7 @@
   "build": {
     "appId": "com.devbycm.eris",
     "productName": "Eris",
-    "buildVersion": "183",
+    "buildVersion": "192",
     "mac": {
       "category": "your.app.category.type",
       "target": "dmg"
