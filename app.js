@@ -2,7 +2,7 @@ const {server} = require('./x')
 const gopher = require('./gopher')
 gopher.start()
 
-const {app, Menu, MenuItem,BrowserWindow, dialog} = require('electron')
+const {app, Menu, MenuItem, BrowserWindow, dialog} = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -12,8 +12,56 @@ app.commandLine.appendSwitch('ignore-certificate-errors')
 let associatePath
 
 let main
-function setMenu () {
-  Menu.setApplicationMenu(Menu.buildFromTemplate([]))
+function setMenu (hasOpen) {
+  const template = []
+  if (hasOpen) {
+    template.push({
+      label: 'File', submenu: [
+        {
+          label:       'Open...',
+          accelerator: 'CmdOrCtrl+o',
+          click(){
+            createWindow()
+          },
+        }],
+    })
+  }
+  if (process.platform === 'darwin') {
+    template.unshift({
+      label:   app.getName(),
+      submenu: [
+        {
+          label: `About ${app.getName()}`,
+          role:  'about',
+        }, {
+          type: 'separator',
+        },
+        {
+          role:    'services',
+          submenu: [],
+        },
+        {
+          type: 'separator',
+        },
+        {
+          role: 'hide',
+        },
+        {
+          role: 'hideothers',
+        },
+        {
+          role: 'unhide',
+        },
+        {
+          type: 'separator',
+        },
+        {
+          role: 'quit',
+        },
+      ],
+    })
+  }
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 }
 
 function createWindow () {
@@ -45,7 +93,7 @@ function createWindow () {
   // main.loadURL('file://' + path.join(__dirname, 'test.html?p=' + associatePath));
   // main.loadURL('file://' + path.join(__dirname,'maid', 'maid.html'));
   // main.webContents.openDevTools()
-  main.loadURL('http://localhost:4200')
+  main.loadURL(url.format({pathname: path.join(__dirname, 'app', 'index.html'), protocol: 'file:', slashes: true}))
 
   const paths = dialog.showOpenDialog({
     properties: ['openFile', 'openDirectory', 'showHiddenFiles'],
@@ -64,7 +112,7 @@ function createWindow () {
     main.webContents.send('port', port)
   })
   main.on('closed', () => {
-    setMenu()
+    setMenu(true)
     main = null
   })
 }
